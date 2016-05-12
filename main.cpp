@@ -10,6 +10,8 @@
 
 int main() {
 	int choice; /// \bug if not int
+	char exit;
+/// do while: loop for the options of the program
 	do {
 		std::cout << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
 		std::cout << " 1. Read datas used"<<std::endl;
@@ -18,7 +20,7 @@ int main() {
 		std::cout << " 4. Exit the program"<<std::endl;
 
 		std::cin>>choice;
-
+/// swtich: send the choice to the good function
 		switch (choice) {
 			case 1: read();
 				break;
@@ -29,6 +31,7 @@ int main() {
 			case 4: break;
 			default: std::cout<<"Error, enter 1, 2, 3 or 4" <<std::endl;
 		}
+///if: ask if want to do something else!!!	
 	} while (choice!=4);
 }
 
