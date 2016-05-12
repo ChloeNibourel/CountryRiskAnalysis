@@ -9,11 +9,27 @@
 #include <iostream>
 
 int main() {
-	std::cout << "Welcome, what do you want to do ?"<<std::endl;
-	std::cout << " 1. Read datas used"<<std::endl;
-	std::cout << " 2. Update datas used"<<std::endl;
-	std::cout << " 3. Simulate a shock"<<std::endl;	
-	std::cout << " 4. Exit the program"<<std::endl;
-	}
+	int choice; /// \bug if not int
+	do {
+		std::cout << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
+		std::cout << " 1. Read datas used"<<std::endl;
+		std::cout << " 2. Update datas used"<<std::endl;
+		std::cout << " 3. Simulate a shock"<<std::endl;	
+		std::cout << " 4. Exit the program"<<std::endl;
+
+		std::cin>>choice;
+
+		switch (choice) {
+			case 1: read();
+				break;
+			case 2: update();
+				break;
+			case 3: simulate();
+				break;
+			case 4: break;
+			default: std::cout<<"Error, enter 1, 2, 3 or 4" <<std::endl;
+		}
+	} while (choice!=4);
+}
 
 
