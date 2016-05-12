@@ -6,4 +6,14 @@
 /// 3.Simulate different shocks 
 /// 4.Exit the program
 
+#include <iostream>
+
+int main() {
+	std::cout << "Welcome, what do you want to do ?"<<std::endl;
+	std::cout << " 1. Read datas used"<<std::endl;
+	std::cout << " 2. Update datas used"<<std::endl;
+	std::cout << " 3. Simulate a shock"<<std::endl;	
+	std::cout << " 4. Exit the program"<<std::endl;
+	}
+
 
