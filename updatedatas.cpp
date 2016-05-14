@@ -1,4 +1,5 @@
 #include <iostream>
+#include <colors.h>
 
 /// \file updatedatas.cpp
 /// \brief modify header files and excel file with new data
@@ -12,32 +13,38 @@ void update() {
 	int choice3a;
 	int choice3b;
 
+//ask the questions in blue and errors in red
+    Color::Modifier blue(Color::FG_BLUE);
+    Color::Modifier red(Color::FG_RED);
+    Color::Modifier def(Color::FG_DEFAULT);
+
+
 // Choose which kind of datas you want to update 
 
-	std::cout << "What do you want to update ? 1/2" << std::endl;
-	std::cout << " 1. A country data : GDP, Total export, Elasticities" << std::endl;
-	std::cout << " 2. A market data : export between 2 countries in a specific field" << std::endl;
+	std::cout << blue << "What do you want to update ? 1/2" << std::endl;
+	std::cout << blue << " 1. A country data : GDP, Total export, Elasticities" << std::endl;
+	std::cout << blue << " 2. A market data : export between 2 countries in a specific field" 			<< std::endl;
 
 	std::cin >> choice1;
 
-// Update Country data
 
+// Update Country data
 
 	if (choice1==1) { 
 	// Which country
-		std::cout << "Which country ? 1/2/3" << std::endl;
-		std::cout << " 1. Canada" << std::endl;
-		std::cout << " 2. United States" << std::endl;
-		std::cout << " 3. Mexico" << std::endl;
+		std::cout << blue << "Which country ? 1/2/3" << std::endl;
+		std::cout << blue << " 1. Canada" << std::endl;
+		std::cout << blue << " 2. United States" << std::endl;
+		std::cout << blue << " 3. Mexico" << std::endl;
 
 		std::cin >> choice2a;
 
 	// Which data
-		std::cout << "Which data ? 1/2/3" << std::endl;
-		std::cout << " 1. GDP" << std::endl;
-		std::cout << " 2. Total Export" << std::endl;
-		std::cout << " 3. Elasticity of Exportation" << std::endl;
-		std::cout << " 4. Elasticity of Importation" << std::endl;
+		std::cout << blue << "Which data ? 1/2/3" << std::endl;
+		std::cout << blue << " 1. GDP" << std::endl;
+		std::cout << blue << " 2. Total Export" << std::endl;
+		std::cout << blue << " 3. Elasticity of Exportation" << std::endl;
+		std::cout << blue << " 4. Elasticity of Importation" << std::endl;
 
 		std::cin >> choice2b;
 
@@ -75,31 +82,32 @@ void update() {
 
 	//Error
 		else {
-			std::cout << "Error: enter 1, 2 or 3 and 1, 2, 3 or 4" <<std::endl; 
+			std::cout << red << "Error: enter 1, 2 or 3 and 1, 2, 3 or 4" <<std::endl; 
 		}
 
 	}
+
 
 // Update Market data
 	else if (choice1==2) {
 
 	//Which field
-		std::cout << "Which market ? 1/2/3" << std::endl;
-		std::cout << " 1. Mineral Fuels" << std::endl;
-		std::cout << " 2. Food" << std::endl;
-		std::cout << " 3. Machinery and transport equipment" << std::endl;
-		std::cout << " 4. Total" << std::endl;
+		std::cout << blue << "Which market ? 1/2/3" << std::endl;
+		std::cout << blue << " 1. Mineral Fuels" << std::endl;
+		std::cout << blue << " 2. Food" << std::endl;
+		std::cout << blue << " 3. Machinery and transport equipment" << std::endl;
+		std::cout << blue << " 4. Total" << std::endl;
 
 		std::cin >> choice3a;
 
 	//Export between which countries
-		std::cout << " Which countries are exchanging ? 1/2/3/4/5/6" << std::endl;
-		std::cout << " 1. Exportations from Canada to the US" << std::endl;
-		std::cout << " 2. Exportations from Canada to Mexico" << std::endl;
-		std::cout << " 3. Exportations from the US to Canada " << std::endl;
-		std::cout << " 4. Exportations from the US to Mexico" << std::endl;
-		std::cout << " 5. Exportations from Mexico to Canada" << std::endl;
-		std::cout << " 6. Exportations from Mexico to the US" << std::endl;
+		std::cout << blue << " Which countries are exchanging ? 1/2/3/4/5/6" << std::endl;
+		std::cout << blue << " 1. Exportations from Canada to the US" << std::endl;
+		std::cout << blue << " 2. Exportations from Canada to Mexico" << std::endl;
+		std::cout << blue << " 3. Exportations from the US to Canada " << std::endl;
+		std::cout << blue << " 4. Exportations from the US to Mexico" << std::endl;
+		std::cout << blue << " 5. Exportations from Mexico to Canada" << std::endl;
+		std::cout << blue << " 6. Exportations from Mexico to the US" << std::endl;
 
 		std::cin >> choice3b;
 
@@ -185,15 +193,17 @@ void update() {
 			//update total exp from Mex to US
 		}
 
+
 	//Error
 		else {
-			std::cout << "Error: Enter 1,2,3 or 4 and 1,2,3,4,5 or 6" << std::endl;
+			std::cout << red << "Error: Enter 1,2,3 or 4 and 1,2,3,4,5 or 6" << std::endl;
 		}
 }
 
+
 //Error in type of update
 	else {
-		std::cout << "Error: Enter 1 or 2" << std::endl;
+		std::cout << red << "Error: Enter 1 or 2" << std::endl;
 }
 
 
