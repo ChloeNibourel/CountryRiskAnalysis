@@ -33,7 +33,7 @@ void GDPShockImpact(const country& mycountry, double GDPChange) {
 		}
 	}
 
-/// \func ExchR
+/// \func ExchangeRateShockImpact
 /// \bried Impact of an exchange rate appreciation or depreciation on imports exports and GDP
 /// \bug. We have to homogenize the direction of exchange rates. Domestic -> foreign or foreign -> Domestic
 
@@ -50,7 +50,24 @@ void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
 		std::cout << mycountry.name << "will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ".";
 	}
 	if (ExchRChange < 0) { ///Appreciation
-		std::cout << mycountry.name << "will see a decreased demand in imports and an increased demand in exports. Good for" << mycountry.exportmarkets << ". Risk for " << mycountry.othercountryexports << ".";
+		std::cout << mycountry.name << "will see a decreased demand in imports and an increased demand in exports. Good for " << mycountry.exportmarkets << " Risk for " << mycountry.othercountryexports << ".";
+	}
+}
+
+/// \func InterestRateShockImpact
+/// \brief Determine impact of a shock to interest rates. 
+
+///Details
+
+void InterestRateShockImpact(const country& mycountry, double IntRChange) {
+	double ExchRChange = IntRChange;
+	if (IntRChange > 0) {
+		std::cout << "Depreciation of exchange rate";
+		ExchangeRateShockImpact(mycountry, ExchRChange);
+	}
+	if (IntRChange <= 0) {
+		std::cout << "Appreciation of exchange rate";
+		ExchangeRateShockImpact(mycountry, ExchRChange);
 	}
 }
 
@@ -65,7 +82,7 @@ int main() {
 	Mexico.A = 2094+109-204;
 	Mexico.income = 2094;
 	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
-	ExchangeRateShockImpact(Mexico, 5); 
+	InterestRateShockImpact(Mexico, 5); 
 }
 
 
