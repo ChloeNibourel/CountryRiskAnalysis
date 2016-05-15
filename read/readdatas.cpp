@@ -91,7 +91,8 @@ void read(country* country1, country* country2, country* country3, market* marke
 	//If the user makes an invalid choice he can choose again
 }
 
-
+///\fn readcountry(country* mycountry)
+///\brief function shows to the user the datas used to simulate the country he chose to see
 void readcountry(country* mycountry){
 	std::cout<< std::endl;
 	std::cout << "Country : " << (*mycountry).name << std::endl;
