@@ -1,24 +1,28 @@
 ///\file getdata.cpp
-///\gets data about countrys from the excel (.xlsx) file and attributes the values to country classes
+///\brief gets data about countrys from the excel (.xlsx) file and attributes the values to country classes
 
 #include <iostream>
 #include "libxl.h"
 #include "../headers/country.h"
 #include "../headers/getdata.h"
 
-
+///\fn getdata
+///\brief loads an excel file and calls functions to read from it
 void getdata (country* country1, country* country2, country* country3){
 
 	libxl::Book* book= xlCreateXMLBook();
 
+	//loading an excel book
 	if((*book).load("../data.xlsx")){
+		//loading the first two sheets
 		libxl::Sheet* sheet0 = (*book).getSheet(0);
 		libxl::Sheet* sheet1 = (*book).getSheet(1);
 		if(sheet0 && sheet1){
 			//getmarket(book, sheet0);
-			getcountry(book, sheet1, country1, 1); // The integer is the number of the column corresponding to the coutry in Excel file
+			getcountry(book, sheet1, country1, 1); 
 			getcountry(book, sheet1, country2, 2);
 			getcountry(book, sheet1, country3, 3);
+			// The integer in the arguments is the number of the column corresponding to the coutry in Excel file
 		}
 		else {
 			std::cout<<"Error when loading the first sheet from the data file"<<std::endl;
@@ -31,7 +35,12 @@ void getdata (country* country1, country* country2, country* country3){
 	
 	
 }
+
+
+
 /*
+///\fn getmarket
+///\brief gets values about markets from the excel file and attributes it to market class variables
 void getmarket(libxl::Book* book, libxl::Sheet* sheet){
 	for (int j=1; j<=3; ++j){
 		switch(j){
@@ -50,7 +59,8 @@ void getmarket(libxl::Book* book, libxl::Sheet* sheet){
 } */
 
 
-///\fcn takes an excel file and a country as input, and attributes data from this excel file to that country
+///\fn getcountry
+///\brief gets values about countries from the excel file and attributes it to country class variables
 void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int j){
 	switch(j){
 		case 1: (*mycountry).name="USA"; break;
@@ -77,18 +87,3 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 	(*mycountry).A= (*sheet).readNum(i, j);
 
 } 
-
-/*	for (int i=1; j<=3; ++j){
-		switch(j){
-			case 1: std::cout<< "USA" << std::endl; break;
-			case 2: std::cout<< "Canada" << std::endl; break;
-			case 3: std::cout<< "Mexico" << std::endl; break;
-		}
-		
-		for(int i=2; i<=3; ++i){
-			std::cout<< (*sheet).readNum(i, j) <<std::endl;
-			///\bug here I'm printing on the terminal the values for the country, in the future we'll give those values to the class country
-		}
-	std::cout<<std::endl;
-	}
-*/
