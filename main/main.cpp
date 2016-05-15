@@ -8,10 +8,31 @@
 /// 4.Exit the program
 
 #include <iostream>
-#include "colors.h"
+#include "../headers/colors.h"
+#include "../headers/country.h"
+#include "../headers/getdata.h"
 
 int main() {
 
+	country usa;
+	country canada;
+	country mexico;
+	
+	getdata (&usa, &canada, &mexico);
+	
+	std::cout<< usa.name << std::endl;
+	std::cout<<usa.totalexports << std::endl;
+	std::cout<<usa.elasticityimports<<std::endl;
+	
+	std::cout<< canada.name << std::endl;
+	std::cout<< canada.totalexports << std::endl;
+	std::cout<< canada.elasticityimports<<std::endl;
+		
+	std::cout<< mexico.name << std::endl;
+	std::cout<< mexico.totalexports << std::endl;
+	std::cout<< mexico.elasticityimports<<std::endl;
+	std::cout<<std::endl;
+		
 	int choice; 
 
 //ask the questions in blue and errors in red
@@ -31,7 +52,7 @@ int main() {
 		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
 
 // swtich: send the choice to the good function
-		switch (choice) {
+	/*	switch (choice) {
 			case 1: read();
 				break;
 			case 2: update();
@@ -41,7 +62,7 @@ int main() {
 			case 4: 
 				break;
 			default: std::cout << red << "Error, enter 1, 2, 3 or 4" <<std::endl;
-		}
+		}*/
 	
 	} while (choice!=4);
 }
