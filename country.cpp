@@ -47,7 +47,7 @@ void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
 	double newincome = GDP(mycountry, newexports, newexports);
 	double incomechange = (newincome - mycountry.income)/mycountry.income;
 	if (ExchRChange > 0) { ///Depreciation
-		std::cout << mycountry.name << "will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ".";
+		std::cout << mycountry.name << " will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ".";
 	}
 	if (ExchRChange < 0) { ///Appreciation
 		std::cout << mycountry.name << "will see a decreased demand in imports and an increased demand in exports. Good for " << mycountry.exportmarkets << " Risk for " << mycountry.othercountryexports << ".";
@@ -62,11 +62,11 @@ void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
 void InterestRateShockImpact(const country& mycountry, double IntRChange) {
 	double ExchRChange = IntRChange;
 	if (IntRChange > 0) {
-		std::cout << "Depreciation of exchange rate";
+		std::cout << "Depreciation of exchange rate. ";
 		ExchangeRateShockImpact(mycountry, ExchRChange);
 	}
 	if (IntRChange <= 0) {
-		std::cout << "Appreciation of exchange rate";
+		std::cout << "Appreciation of exchange rate. ";
 		ExchangeRateShockImpact(mycountry, ExchRChange);
 	}
 }
@@ -82,7 +82,7 @@ int main() {
 	Mexico.A = 2094+109-204;
 	Mexico.income = 2094;
 	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
-	InterestRateShockImpact(Mexico, 5); 
+	InterestRateShockImpact(Mexico, -5); 
 }
 
 
