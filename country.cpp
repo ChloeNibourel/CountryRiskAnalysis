@@ -40,10 +40,10 @@ void GDPShockImpact(const country& mycountry, double GDPChange) {
 ///Details
 
 void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
-	double ChangeImports = ExchRChange*mycountry.elasticityimports;
-	double ChangeExports = ExchRChange*mycountry.elasticityexports;
-	double NewImports = ChangeImports*totalimports;
-	double newexports = changeexports*totalexports;
+	double changeimports = ExchRChange*mycountry.elasticityimports;
+	double changeexports = ExchRChange*mycountry.elasticityexports;
+	double newimports = changeimports*mycountry.totalimports;
+	double newexports = changeexports*mycountry.totalexports;
 	double newincome = GDP(mycountry, newexports, newexports);
 	double incomechange = (newincome - mycountry.income)/mycountry.income;
 	if (ExchRChange > 0) { ///Depreciation
@@ -57,7 +57,14 @@ int main() {
 	country Mexico;
 	Mexico.name = "Mexico";
 	Mexico.othercountryexports = "Canada's Food Exports and USA's Petrol Exports.";
-	GDPShockImpact(Mexico,-4); 
+	Mexico.elasticityimports = 0.45;
+	Mexico.elasticityexports = -0.20;
+	Mexico.totalimports = 204;
+	Mexico.totalexports = 109;
+	Mexico.A = 2094+109-204;
+	Mexico.income = 2094;
+	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
+	ExchangeRateShockImpact(Mexico, 5); 
 }
 
 
