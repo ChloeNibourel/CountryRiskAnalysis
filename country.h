@@ -7,7 +7,7 @@ public:
 	std::string othercountryexports; /// \bug figure out how we want to read exchange rates.
 	float elasticityimports;
 	float elasticityexports;
-	float Income;
+	float income;
 	float A;
 	float totalimports;
 	float totalexports;
