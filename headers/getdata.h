@@ -1,3 +1,3 @@
-void getcountry();
+void getcountry(libxl::Book* book, libxl::Sheet* sheet);
 
-void getmarket ();
+void getmarket (libxl::Book* book, libxl::Sheet* sheet);
