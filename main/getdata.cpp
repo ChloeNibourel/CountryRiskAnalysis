@@ -4,11 +4,12 @@
 #include <iostream>
 #include "libxl.h"
 #include "../headers/country.h"
+#include "../headers/market.h"
 #include "../headers/getdata.h"
 
 ///\fn getdata
 ///\brief loads an excel file and calls functions to read from it
-void getdata (country* country1, country* country2, country* country3){
+void getdata (country* country1, country* country2, country* country3, market* market1, market* market2, market* market3){
 
 	libxl::Book* book= xlCreateXMLBook();
 
@@ -18,14 +19,18 @@ void getdata (country* country1, country* country2, country* country3){
 		libxl::Sheet* sheet0 = (*book).getSheet(0);
 		libxl::Sheet* sheet1 = (*book).getSheet(1);
 		if(sheet0 && sheet1){
-			//getmarket(book, sheet0);
+			
+			getmarket(book, sheet0, market1, 1);
+			getmarket(book, sheet0, market2, 2);
+			getmarket(book, sheet0, market3, 3);
+			
 			getcountry(book, sheet1, country1, 1); 
 			getcountry(book, sheet1, country2, 2);
 			getcountry(book, sheet1, country3, 3);
 			// The integer in the arguments is the number of the column corresponding to the coutry in Excel file
 		}
 		else {
-			std::cout<<"Error when loading the first sheet from the data file"<<std::endl;
+			std::cout<<"Error when loading the sheets from the data file"<<std::endl;
 		}
 	}
 	else {
@@ -38,25 +43,23 @@ void getdata (country* country1, country* country2, country* country3){
 
 
 
-/*
+
 ///\fn getmarket
 ///\brief gets values about markets from the excel file and attributes it to market class variables
-void getmarket(libxl::Book* book, libxl::Sheet* sheet){
-	for (int j=1; j<=3; ++j){
-		switch(j){
-			case 1: std::cout<< "USA" << std::end; break;
-			case 2: std::cout<< "Canada" << std::end; break;
-			case 3: std::cout<< "Mexico" << std::end; break;
-		}
-			
-		for(int i=2; i<=3; ++i){
-			std::cout<< (*sheet).readNum(i, j) <<std::endl;
-			///\bug here I'm printing on the terminal the values for the country, in the future we'll give those values to the class country
-		}
-	std::cout<<std::endl;
+void getmarket(libxl::Book* book, libxl::Sheet* sheet, market* mymarket, int k){
+	int i;
+	switch(k){
+		case 1: (*mymarket).good="food"; i=2; break;
+		case 2: (*mymarket).good="machinery"; i=8; break;
+		case 3: (*mymarket).good="fuel"; i=14; break;
+		default : std::cout<< "Error : market not in the database";
 	}
-
-} */
+	
+	for (int j=0; j<= 5; ++j){
+		(*mymarket).exchange[j][0]= (*sheet).readNum(i+j, 3);
+		(*mymarket).exchange[j][1]= (*sheet).readNum(i+j, 4);
+	}
+}
 
 
 ///\fn getcountry
@@ -65,7 +68,8 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 	switch(j){
 		case 1: (*mycountry).name="USA"; break;
 		case 2: (*mycountry).name="Canada"; break;
-		case 3: (*mycountry).name="Mexico";
+		case 3: (*mycountry).name="Mexico"; break;
+		default : std::cout<< "Error : country not in the database";
 	}
 	
 	int i=2;
