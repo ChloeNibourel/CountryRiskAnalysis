@@ -8,10 +8,27 @@
 /// 4.Exit the program
 
 #include <iostream>
-#include "colors.h"
+#include "../headers/colors.h"
+#include "../headers/country.h"
+#include "../headers/market.h"
+#include "../headers/getdata.h"
 
+///\fn main
+///\brief creates variables for countries and markets, and asks the user what he wants to do
 int main() {
 
+	//Getting data from the Excel file into type country variables usa, canada, mexico and type market variables food, machinery, fuel
+	country usa;
+	country canada;
+	country mexico;
+	
+	market food;
+	market machinery;
+	market fuel;
+	
+	getdata (&usa, &canada, &mexico, &food, &machinery, &fuel);
+	
+	
 	int choice; 
 
 //ask the questions in blue and errors in red
@@ -30,8 +47,8 @@ int main() {
 
 		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
 
-// swtich: send the choice to the good function
-		switch (choice) {
+// switch: send the choice to the good function
+	/*switch (choice) {
 			case 1: read();
 				break;
 			case 2: update();
@@ -42,7 +59,7 @@ int main() {
 				break;
 			default: std::cout << red << "Error, enter 1, 2, 3 or 4" <<std::endl;
 		}
-	
+	*/	
 	} while (choice!=4);
 }
 
