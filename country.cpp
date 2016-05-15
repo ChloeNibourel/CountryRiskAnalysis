@@ -52,6 +52,7 @@ void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
 	if (ExchRChange < 0) { ///Appreciation
 		std::cout << mycountry.name << "will see a decreased demand in imports and an increased demand in exports. Good for" << mycountry.exportmarkets << ". Risk for " << mycountry.othercountryexports << ".";
 	}
+}
 
 int main() {
 	country Mexico;
