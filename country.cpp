@@ -71,6 +71,24 @@ void InterestRateShockImpact(const country& mycountry, double IntRChange) {
 	}
 }
 
+/// \func InflationRateShockImpact
+/// \brief Determine the impact of a shock of the inflation rate.
+
+
+///Details
+
+void InflationRateShockImpact(const country& mycountry, double InflRChange) {
+	double IntRChange = InflRChange;
+	if (InflRChange >0) {
+		std::cout << "Increase in interest rates. " ;
+		InterestRateShockImpact(mycountry, IntRChange);
+	}
+	if (InflRChange <= 0) {
+		std::cout << "Decrease in interest rates. ";
+		InterestRateShockImpact(mycountry, IntRChange);
+	}
+}
+
 int main() {
 	country Mexico;
 	Mexico.name = "Mexico";
@@ -82,7 +100,7 @@ int main() {
 	Mexico.A = 2094+109-204;
 	Mexico.income = 2094;
 	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
-	InterestRateShockImpact(Mexico, -5); 
+	InflationRateShockImpact(Mexico, -5); 
 }
 
 
