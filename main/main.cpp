@@ -12,6 +12,7 @@
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/getdata.h"
+#include "../headers/readdata.h"
 
 ///\fn main
 ///\brief creates variables for countries and markets, and asks the user what he wants to do
@@ -48,18 +49,18 @@ int main() {
 		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
 
 // switch: send the choice to the good function
-	/*switch (choice) {
-			case 1: read();
+	switch (choice) {
+			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel);
 				break;
-			case 2: update();
+			/*case 2: update();
 				break;
 			case 3: simulate();
-				break;
+				break;*/
 			case 4: 
 				break;
 			default: std::cout << red << "Error, enter 1, 2, 3 or 4" <<std::endl;
 		}
-	*/	
+		
 	} while (choice!=4);
 }
 

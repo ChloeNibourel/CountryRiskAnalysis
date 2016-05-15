@@ -6,6 +6,7 @@
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/getdata.h"
+#include "../headers/readdata.h"
 
 ///\fn getdata
 ///\brief loads an excel file and calls functions to read from it
