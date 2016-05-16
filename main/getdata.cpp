@@ -15,7 +15,7 @@ void getdata (country* country1, country* country2, country* country3, market* m
 	libxl::Book* book= xlCreateXMLBook();
 
 	//loading an excel book
-	if((*book).load("../data.xlsx")){
+	if((*book).load("data.xlsx")){
 		//loading the first two sheets
 		libxl::Sheet* sheet0 = (*book).getSheet(0);
 		libxl::Sheet* sheet1 = (*book).getSheet(1);
