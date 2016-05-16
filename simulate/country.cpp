@@ -115,29 +115,18 @@ void InterestRateShockImpact(const country& domesticcountry, int choice, double 
 
 /// \Detail When there is an increase in inflation, it results in an increase in the domestic interest rate since banks run a higher risk when they lend money. When there is a decrease in inflation we see a decrease in interest rates. The function takes an inputs the country and the inflation rate change, and outputs the effect on interest rates while calling the InterestRateShockImpact function.
 
-void InflationRateShockImpact(const country& mycountry, double InflRChange) {
-	double IntRChange = InflRChange;
-	if (InflRChange >0) {
+void InflationRateShockImpact(const country& mycountry, int choice, double change) {
+	double IntRChange = change;
+	if (change > 0) {
 		std::cout << "Increase in interest rates. " ;
-		InterestRateShockImpact(mycountry, IntRChange);
+		InterestRateShockImpact(mycountry, choice, IntRChange);
 	}
-	if (InflRChange <= 0) {
+	if (change == 0) {
+		std::cout << "No impact on economy.";
+	}
+	if (change <= 0) {
 		std::cout << "Decrease in interest rates. ";
-		InterestRateShockImpact(mycountry, IntRChange);
+		InterestRateShockImpact(mycountry, choice, IntRChange);
 	}
-}
-
-int main() {
-	country Mexico;
-	Mexico.name = "Mexico";
-	Mexico.othercountryexports = "Canada's Food Exports and USA's Petrol Exports.";
-	Mexico.elasticityimports = 0.45;
-	Mexico.elasticityexports = -0.20;
-	Mexico.totalimports = 204;
-	Mexico.totalexports = 109;
-	Mexico.A = 2094+109-204;
-	Mexico.income = 2094;
-	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
-	InflationRateShockImpact(, -5); 
 }
 
