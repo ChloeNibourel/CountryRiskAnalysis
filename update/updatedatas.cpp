@@ -59,11 +59,11 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	//update the Excel data file
 	libxl::Book* book= xlCreateXMLBook();
 
-	if((*book).load("../data.xlsx")){
+	if((*book).load("data.xlsx")){
 		libxl::Sheet* sheet = (*book).getSheet(1);
 		if(sheet){
 			write = (*sheet).writeNum(i, j, newvalue);
-			save = (*book).save("../data.xlsx");
+			save = (*book).save("data.xlsx");
 		}
 		
 		else {std::cout<<"Error when loading the sheet from the data file"<<std::endl;}	
@@ -72,6 +72,8 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	else {
 		std::cout<<"Error when loading the data file"<<std::endl;
 	}
+	
+
 
 	//If this updating was a success, update the type country variable
 	if(write && save){
