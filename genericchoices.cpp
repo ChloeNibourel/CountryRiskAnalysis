@@ -1,5 +1,5 @@
 #include <iostream>
-#include "colors.h"
+#include "../headers/colors.h"
 
 ///\fn int choicecountry
 ///\brief general function that lets you choose between the 3 coutries
