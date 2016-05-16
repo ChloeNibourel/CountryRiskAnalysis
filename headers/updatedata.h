@@ -7,3 +7,4 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 void updateexports(exportsnetwork* mynetwork);
 
 int choicecountry(country* country1, country* country2, country* country3);
+
