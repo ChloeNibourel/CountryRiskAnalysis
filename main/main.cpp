@@ -42,7 +42,7 @@ int main() {
 
 // do while: loop for the options of the program
 	do {
-		std::cout << std.endl;
+		std::cout << std::endl;
 		std::cout << blue << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
 		std::cout << " 1. Read datas used"<<std::endl;
 		std::cout << " 2. Update datas used"<<std::endl;
