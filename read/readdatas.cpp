@@ -36,7 +36,9 @@ void readmarket(market* mymarket){
 	std::cout << "TO \t Canada \t" << (*mymarket).exchange[2][0] << "\t X \t"<< (*mymarket).exchange[3][0] << std::endl;
 	std::cout << "\t Mexico \t" << (*mymarket).exchange[4][0] <<"\t" << (*mymarket).exchange[5][0] <<"\t X \t"<< std::endl;
 	
-	std::cout << "Percentage of total exports between the countries " << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Percentage of total exports between the countries in billion USD " << std::endl;
 	std::cout << "\t \t \t \t FROM" << std::endl;
 	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
 	std::cout << "\t USA \t \t X \t" << (*mymarket).exchange[0][1] << "\t"<< (*mymarket).exchange[1][1] << std::endl;
@@ -49,8 +51,9 @@ void readmarket(market* mymarket){
 void readexports (exportsnetwork* mynetwork){
 	std::cout << std::endl;
 	std::cout << "Total exports between the countries " << std::endl;
-	std::cout << "\t \t FROM" << std::endl;
+	std::cout << "\t \t FROM:" << std::endl;
 	std::cout << "\t USA \t Canada  Mexico" << std::endl;
+	std::cout << "TO:" << std::endl;
 	for (int i=0; i<3; ++i){
 		//Switch to write a different country name on each line of the matrix
 		switch(i){
