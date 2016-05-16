@@ -61,7 +61,7 @@ void ExchangeRateShockImpact(const country& domesticcountry, const country& fore
 		GDPShockImpact(domesticcountry, incomechange);
 	}
 	if (change == 0) {
-		std::cout << "No impact on country.";	
+		std::cout << "No impact on economy.";	
 	}
 	if (change <= 0) { ///Depreciation
 		std::cout << "Risk for " << (*domesticcountry).name << "'s imports. Good for " << (*domesticcountry).name << 			" 's primary exports.";
@@ -74,15 +74,38 @@ void ExchangeRateShockImpact(const country& domesticcountry, const country& fore
 
 /// \Detail When there is an increase in interest rates, we see an increase in the domestic exchange rate since their is more demand for the domestic currency due to superior investment returns in that country. Thus an increase in interest rates will result in a currency appreciation and a decrease in interest rates will result in a currency depreciation. The function takes as inputs the country and the interest rate change, and outputs the effect on the exchange rate while calling the ExchangeRateShockImpact function. 
 
-void InterestRateShockImpact(const country& mycountry, double IntRChange) {
-	double ExchRChange = IntRChange;
-	if (IntRChange > 0) {
-		std::cout << "Appreciation of exchange rate. ";
-		ExchangeRateShockImpact(mycountry, ExchRChange);
+void InterestRateShockImpact(const country& domesticcountry, int choice, double change) {
+	double ExchRChange = change;	
+	switch (choice) {
+			case 1 : const &country foreigncountry1 = Canada;
+				int choicea = 2;
+				const &country foreigncountry2 = Mexico;
+				int choiceb = 3;
+				break;
+			case 2 : const &country foreigncountry1 = USA;
+				int choicea = 1;
+				const &country foreigncountry2 = Mexico;
+				int choiceb = 3;
+				break;
+			case 3 : const &country foreigncountry1 = USA;
+				int choicea = 1;
+				const &country foreigncountry2 = Canada;
+				int choiceb = 2;
+				break;
+			default : std::cout << "Country not available in your location";	
 	}
-	if (IntRChange <= 0) {
-		std::cout << "Depreciation of exchange rate. ";
-		ExchangeRateShockImpact(mycountry, ExchRChange);
+	if (change > 0) {
+		std::cout << "Simulateneous Appreciation of " << (*domesticcountry).name << "'s exchange rate with:" << 			std::endl << (*foreigncountry1).name << std::endl << " and " << (*foreigncountry2).name;
+		ExchangeRateShockImpact(domesticcountry, foreigncountry1, choice, choicea, ExchRChange);
+		ExchangeRateShockImpact(domesticcountry, foreigncountry2, choice, choiceb, ExchRChange);
+	}
+	if (change == 0) {
+		std::cout << "No impact on economy.";	
+	}
+	if (change < 0) {
+		std::cout << "Simulateneous Depreciation of " << (*domesticcountry).name << "'s exchange rate with:" << 			std::endl << (*foreigncountry1).name << std::endl << " and " << (*foreigncountry2).name;
+		ExchangeRateShockImpact(domesticcountry, foreigncountry1, choice, choicea, ExchRChange);
+		ExchangeRateShockImpact(domesticcountry, foreigncountry2, choice, choiceb, ExchRChange);
 	}
 }
 
