@@ -117,8 +117,9 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			std::cout << "Pas encore fait désolée" << std::endl;
 		}
 		
-		else if (choice!=4) {
+		else if (choice1!=4) {
 			std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << std::endl;
+		}
 		
 	}while(choice1!=1 && choice1!=2 && choice1!=3 && choice1!=4);
 }

@@ -19,7 +19,7 @@ class market{
 
 	exchange[2][0]= mexico -> us
 	exchange[2][1]= mexico -> canada 
-	exchange[2][1]= mexico -> mexico =0	*/
+	exchange[2][1]= mexico -> mexico =0
 	*/
 	std::array<std::array<double, 3>, 3> exchange;	
 };
@@ -38,7 +38,7 @@ class exportsnetwork {
 
 	exports[2][0]= mexico -> us
 	exports[2][1]= mexico -> canada 
-	exports[2][1]= mexico -> mexico =0	*/		*/
+	exports[2][1]= mexico -> mexico =0	*/
 	public:
 	std::array<std::array<double, 3>, 3> exports;
 };

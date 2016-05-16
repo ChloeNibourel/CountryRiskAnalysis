@@ -122,7 +122,7 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	bool write, save;
 	
 	//Ask user for the new data
-	std::cout << blue << "Current value is " << (*mymarket).exchange[k][1] << std::endl;
+	std::cout << blue << "Current value is " << (*mymarket).exchange[countryfrom-1][countryto-1] << std::endl;
 	std::cout << "Enter the new value :" << std::endl;
 	
 	std::cin>>newvalue;
@@ -147,7 +147,7 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 	//If this updating was a success, update the type country variable
 	if(write && save){
-		(*mymarket).exchange[k][1]=newvalue;
+		(*mymarket).exchange[countryfrom-1][countryto-1]=newvalue;
 	}	
 	
 	
