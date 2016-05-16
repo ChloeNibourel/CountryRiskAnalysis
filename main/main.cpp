@@ -44,8 +44,8 @@ int main() {
 	do {
 		std::cout << std::endl;
 		std::cout << blue << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
-		std::cout << " 1. Read datas used"<<std::endl;
-		std::cout << " 2. Update datas used"<<std::endl;
+		std::cout << " 1. Read datas"<<std::endl;
+		std::cout << " 2. Update datas"<<std::endl;
 		std::cout << " 3. Simulate a shock"<<std::endl;	
 		std::cout << " 4. Exit the program"<< def << std::endl;
 
