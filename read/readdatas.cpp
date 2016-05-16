@@ -28,6 +28,7 @@ void readmarket(market* mymarket){
 	std::cout << "Datas for the market of " << (*mymarket).good << std::endl;
 	std::cout << std::endl;
 	
+	//Tabulation used to display datas in matrix form
 	std::cout << "Amounts exchanged in billion USD " << std::endl;
 	std::cout << "\t \t \t \t FROM" << std::endl;
 	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
