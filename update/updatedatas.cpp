@@ -1,5 +1,5 @@
-/// \file updatedatas.cpp
-/// \brief modify type country variable AND excel file with new data
+///\file updatedatas.cpp
+///\brief modify type country variable AND excel file with new data
 #include <iostream>
 #include"libxl.h"
 #include "../headers/colors.h"
@@ -7,12 +7,13 @@
 #include "../headers/market.h"
 #include "../headers/updatedata.h"
 
-///\fn updatecountry 
-///\brief takes as argument a country and a data to change, asks the user for the new value, update both country and excel file
+///\func updatecountry 
+///\brief takes as argument a country and a data to change, asks the user for the new value, updates both the country variable and the excel file
 void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	int i, j;
 	double newvalue, currentvalue;
-	bool write, save;
+	bool write, save, 
+	bool error=0;
 	
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
@@ -35,10 +36,19 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	}
 			
 	//Ask user for the new data
-	std::cout << blue << "Current value is " << currentvalue << std::endl;
-	std::cout << "Enter the new value :" << std::endl;
+	do{
+		std::cout << blue << "Current value is " << currentvalue << std::endl;
+		std::cout << "Enter the new value :" << std::endl;
 	
-	std::cin>>newvalue;
+		std::cin>>newvalue;
+	
+		if(std::cin.fail() ){ //if type wasn't right
+    	    std::cin.clear(); //clear stream
+    	    std::cin.ignore(); //ignore left over data
+			std::cout << "Error : enter a numerical value" << std::endl;
+			error=1;
+		}
+	}(while error==1); ///\bug : when someone enters a non-numerical value the std::cin.fail() doesn't notice it
 	
 	//Attributes to i and j the values of the row and column where this data is stored in Excel file
 	i=chosendata+1;
@@ -83,6 +93,8 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	}	
 }
 
+///\func updatecountry 
+///\brief takes as argument a market, and two countries, asks the user for the new value of exports between those countries, updates both the market var and the excel file
 void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenmarket){
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
@@ -153,6 +165,8 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 }
 
+///\func updatecountry 
+///\brief takes as argument two countries, asks the user for the new value of exports between those countries, updates both the exportsnetwork var and the excel file
 void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto){
     Color::Modifier blue(Color::FG_BLUE);
     Color::Modifier red(Color::FG_RED);

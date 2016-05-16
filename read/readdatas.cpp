@@ -8,7 +8,7 @@
 #include "../headers/readdata.h"
 
 
-///\fn readcountry(country* mycountry)
+///\func readcountry
 ///\brief function shows to the user all the datas from the country he chose to see
 void readcountry(country* mycountry){
 	std::cout << std::endl;
@@ -21,7 +21,7 @@ void readcountry(country* mycountry){
 	std::cout << std::endl;	
 }
 
-///\fn readmarket
+///\func readmarket
 ///\brief function shows to the user all the data from the country he chose to see
 void readmarket(market* mymarket){
 	std::cout << std::endl;
@@ -48,7 +48,7 @@ void readmarket(market* mymarket){
 
 }
 
-///\fn
+///\func readexports
 ///\brief function shows the user the matrix of total exports between countries
 void readexports (exportsnetwork* mynetwork){
 	std::cout << std::endl;

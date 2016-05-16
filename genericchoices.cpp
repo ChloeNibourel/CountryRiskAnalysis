@@ -1,8 +1,11 @@
+///\file genericchoices.cpp
+///\brief includes functions that let the user choose between options, for choices which are made repeateadly over the program
+
 #include <iostream>
 #include "headers/colors.h"
 #include "headers/country.h"
 
-///\fn int choicecountry
+///\func int choicecountry
 ///\brief general function that lets you choose between the 3 coutries
 int choicecountry(country* country1, country* country2, country* country3){
 	//give the options

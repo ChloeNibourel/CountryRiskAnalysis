@@ -8,7 +8,7 @@
 /// \file choiceread.cpp
 /// \Lets the user chose what type of data he wants to read
 
-///\fn read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3)
+///\func read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3)
 ///\brief lets the user chose what data he wants to read
 void read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
 	int choice, ctry, mkt;

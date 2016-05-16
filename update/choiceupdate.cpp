@@ -1,3 +1,6 @@
+///\file choiceupdate.cpp
+///\brief enables the user to choose what data he wants to update
+
 #include <iostream>
 #include "../headers/colors.h"
 #include "../headers/country.h"
@@ -5,6 +8,8 @@
 #include "../headers/updatedata.h"
 #include "../headers/choices.h"
 
+///\func updatechoice
+///\brief gives the user options of types of updating he can make, calls the corresponding update functions from updatedatas.cpp
 void updatechoice(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
 	int choice1, choice2a, choice2b, choice3a, choice3b, choice3c, from, to;
 	//ask the questions in blue and errors in red

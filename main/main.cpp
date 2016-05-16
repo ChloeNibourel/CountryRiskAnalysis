@@ -15,7 +15,7 @@
 #include "../headers/readdata.h"
 #include "../headers/updatedata.h"
 
-///\fn main
+///\func main
 ///\brief creates variables for countries and markets, and asks the user what he wants to do
 int main() {
 
