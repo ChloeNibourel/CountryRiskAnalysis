@@ -57,12 +57,15 @@ void ExchangeRateShockImpact(const country& domesticcountry, const country& fore
 	double newincome = GDP(domesticcountry, newexports, newimports);
 	double incomechange = (newincome - (*domesticcountry).income)/(*domesticcountry).income;
 	if (change > 0) { ///Appreciation		
-		std::cout << mycountry.name << " will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ". ";
-		GDPShockImpact(mycountry, incomechange);
+		std::cout << "Good for" << (*domesticcountry).name << "'s imports. Risk for " << (*domesticcountry).name << 				"'s primary exports. ";
+		GDPShockImpact(domesticcountry, incomechange);
 	}
-	if (ExchRChange <= 0) { ///Depreciation
-		std::cout << mycountry.name << "will see a decreased demand in imports and an increased demand in exports. Good for " << mycountry.exportmarkets << " Risk for " << mycountry.othercountryexports << ".";
-		GDPShockImpact(mycountry, incomechange);
+	if (change == 0) {
+		std::cout << "No impact on country.";	
+	}
+	if (change <= 0) { ///Depreciation
+		std::cout << "Risk for " << (*domesticcountry).name << "'s imports. Good for " << (*domesticcountry).name << 			" 's primary exports.";
+		GDPShockImpact(domesticcountry, incomechange);
 	}
 }
 
