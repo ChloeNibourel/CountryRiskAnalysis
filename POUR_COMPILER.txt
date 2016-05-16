@@ -1,0 +1,11 @@
+1. Download the libxl library, and put the libxl-3.6.5.0 folder in your "RiskAnalysis" folder
+
+2. (Try) go inside RiskAnalysis folder and run : 
+
+g++ -o program main/main.cpp main/getdata.cpp read/readdatas.cpp read/choiceread.cpp -Ilibxl-3.6.5.0/include_cpp/ -Llibxl-3.6.5.0/lib -lxl -Wl,-rpath,libxl-3.6.5.0/lib -std=c++11
+
+./program
+
+3. if you get an error type "could not find libxl library" at compilation type :
+LD_LIBRARY_PATH=/home/john/libxl-3.6.5.0/lib/
+export LD_LIBRARY_PATH
