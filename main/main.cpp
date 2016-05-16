@@ -13,6 +13,7 @@
 #include "../headers/market.h"
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
+#include "../headers/updatedata.h"
 
 ///\fn main
 ///\brief creates variables for countries and markets, and asks the user what he wants to do
@@ -55,9 +56,9 @@ int main() {
 	switch (choice) {
 			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			/*case 2: update();
+			case 2: updatechoice(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			case 3: simulate();
+			/*case 3: simulate();
 				break;*/
 			case 4: 
 				break;
