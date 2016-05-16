@@ -5,3 +5,5 @@ void updatecountry(country* mycountry);
 void updatemarket(market* mymarket);
 
 void updateexports(exportsnetwork* mynetwork);
+
+int choicecountry();
