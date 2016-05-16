@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+///\class country
+///\brief contains data about countries : elasticity, GDP, imports...
 class country {
 public: 
 	std::string name;
@@ -17,6 +19,3 @@ public:
 	void GDPShockImpact ();
 	void ExchangeRateShockImpact ();
 };
-
-
-
