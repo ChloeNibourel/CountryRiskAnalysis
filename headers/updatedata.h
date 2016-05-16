@@ -4,4 +4,4 @@ void updatecountry(country* mycountry, int chosencountry, int chosendata);
 
 void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenmarket);
 
-void updateexports(exportsnetwork* mynetwork);
+void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto);

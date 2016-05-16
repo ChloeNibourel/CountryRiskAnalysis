@@ -3,9 +3,10 @@
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/updatedata.h"
+#include "../headers/choices.h"
 
 void updatechoice(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
-	int choice1, choice2a, choice2b, choice3a, choice3b, choice3c;
+	int choice1, choice2a, choice2b, choice3a, choice3b, choice3c, from, to;
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
     Color::Modifier red(Color::FG_RED);
@@ -113,8 +114,19 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			}
 		}
 		
+		//To update total exports data
 		else if (choice1==3){
-			std::cout << "Pas encore fait désolée" << std::endl;
+			do{
+				std::cout << blue << "You want to change total exports from : 1/2/3" << std::endl;
+				from = choicecountry(country1, country2, country3);
+			}while(from==0);
+			
+			do{
+				std::cout << "to : " << std::endl;
+				to = choicecountry(country1, country2, country3);
+			}while(to==0);
+			
+			updatetotexports(mynetwork, from, to);
 		}
 		
 		else if (choice1!=4) {

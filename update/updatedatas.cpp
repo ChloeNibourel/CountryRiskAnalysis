@@ -153,3 +153,41 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 }
 
+void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto){
+    Color::Modifier blue(Color::FG_BLUE);
+    Color::Modifier red(Color::FG_RED);
+    Color::Modifier def(Color::FG_DEFAULT);
+	
+	bool write, save;
+	double newvalue;
+	
+	//Ask user for the new data
+	std::cout << blue << "Current value is " << (*mynetwork).exports[countryfrom-1][countryto-1] << std::endl;
+	std::cout << "Enter the new value :" << std::endl;
+	
+	std::cin>>newvalue;
+		
+	//update the Excel data file
+	libxl::Book* book= xlCreateXMLBook();
+
+	if((*book).load("data.xlsx")){
+		libxl::Sheet* sheet = (*book).getSheet(0);
+		if(sheet){
+			write = (*sheet).writeNum(22+countryto , 1+countryfrom, newvalue);
+			save = (*book).save("data.xlsx");
+		}
+		
+		else {std::cout<<"Error when loading the sheet from the data file"<<std::endl;}	
+
+	}
+	else {
+		std::cout<<"Error when loading the data file"<<std::endl;
+	}
+	
+
+
+	//If this updating was a success, update the type country variable itself
+	if(write && save){
+		(*mynetwork).exports[countryfrom-1][countryto-1]=newvalue;		
+	}
+}

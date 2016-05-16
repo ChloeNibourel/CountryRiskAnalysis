@@ -3,6 +3,7 @@
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/readdata.h"
+#include "../headers/choices.h"
 
 /// \file choiceread.cpp
 /// \Lets the user chose what type of data he wants to read
@@ -55,13 +56,8 @@ void read(country* country1, country* country2, country* country3, market* marke
 			do{
 				//chose a country	
 				std::cout << blue << "Which country are you interested in ? 1/2/3/4" << std::endl;
-				std::cout << " 1. United States" << std::endl;
-				std::cout << " 2. Canada" << std::endl;
-				std::cout << " 3. Mexico" << std::endl;
-				std::cout << " 4. Cancel" << def << std::endl;
-
-				std::cin>> ctry;
-			
+				ctry=choicecountry(country1, country2, country3);
+	
 				if(ctry==1){
 					readcountry(country1);
 				}
