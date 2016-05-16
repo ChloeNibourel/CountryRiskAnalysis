@@ -134,7 +134,7 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	if((*book).load("data.xlsx")){
 		libxl::Sheet* sheet = (*book).getSheet(0);
 		if(sheet){
-			write = (*sheet).writeNum(row+k, 2, newvalue);
+			write = (*sheet).writeNum(row+k, 3, newvalue);
 			save = (*book).save("data.xlsx");
 		}
 		
