@@ -123,22 +123,4 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 	}while(choice1!=1 && choice1!=2 && choice1!=3 && choice1!=4);
 }
 
-///\fn int choicecountry
-///\brief general function that lets you choose between the 3 coutries
-int choicecountry(country* country1, country* country2, country* country3){
-	//give the options
-    Color::Modifier blue(Color::FG_BLUE);
-	
-	int choice;
-	std::cout << blue << " 1. " << (*country1).name << std::endl;
-	std::cout << blue << " 2. "<< (*country2).name << std::endl;
-	std::cout << blue << " 3. "<< (*country3).name << std::endl;
-		
-	std::cin >> choice;
-		
-	if (choice==1 || choice ==2 || choice==3){
-		return(choice);
-	}
-	else {return(0);}
 
-}
