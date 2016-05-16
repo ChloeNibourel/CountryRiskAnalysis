@@ -17,7 +17,7 @@ void read(country* country1, country* country2, country* country3, market* marke
     Color::Modifier red(Color::FG_RED);
     Color::Modifier def(Color::FG_DEFAULT);
 	do {
-		std::cout << blue << "Are you interested in datas about a market or a country ? 1/2" << std::endl;
+		std::cout << blue << "Are you interested in datas about a market or a country ? 1/2/3/4" << std::endl;
 		std::cout << " 1. Market" << std::endl;
 		std::cout << " 2. Country" << std::endl;
 		std::cout << " 3. Total exports matrix" << std::endl;
@@ -27,7 +27,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		if(choice==1){
 			do{
 				//chose a market	
-				std::cout << blue << "Which market are you interested in ? 1/2/3" << std::endl;
+				std::cout << blue << "Which market are you interested in ? 1/2/3/4" << std::endl;
 				std::cout << " 1. Food" << std::endl;
 				std::cout << " 2. Machinery and transport equipment" << std::endl;
 				std::cout << " 3. Fuel" << std::endl;
@@ -54,7 +54,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		else if(choice==2){
 			do{
 				//chose a country	
-				std::cout << blue << "Which country are you interested in ? 1/2/3" << std::endl;
+				std::cout << blue << "Which country are you interested in ? 1/2/3/4" << std::endl;
 				std::cout << " 1. United States" << std::endl;
 				std::cout << " 2. Canada" << std::endl;
 				std::cout << " 3. Mexico" << std::endl;
