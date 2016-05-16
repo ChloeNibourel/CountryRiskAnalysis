@@ -5,12 +5,7 @@
 #include "../headers/updatedata.h"
 
 void updatechoice(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
-	int choice1;
-	int choice2a;
-	int choice2b;
-	int choice3a;
-	int choice3b;
-
+	int choice1, choice2a, choice2b, choice3a, choice3b, choice3c;
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
     Color::Modifier red(Color::FG_RED);
@@ -26,31 +21,31 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 		
 		std::cin >> choice1;
 		
+		//To update data about a country
 		if (choice1==1) {
 			do {
-				std::cout << blue << "Which country do you want to update ? 1/2/3/4" << std::endl;
-				choice2a= choicecountry();
+				std::cout << blue << "Which country do you want to update ? 1/2/3" << std::endl;
+				choice2a= choicecountry(country1, country2, country3);
 				if (choice2a==0) {
-					std::cout << blue << "Error : please choose 1, 2, 3 or 4" << std::endl;
+					std::cout << blue << "Error : please choose 1, 2, or 3" << std::endl;
 				}
 			}while (choice2a==0);
 				
 			do {
-				std::cout << blue << "Which data do you want to update ? 1/2/3/4/5/6/7" << std::endl;
+				std::cout << blue << "Which data do you want to update ? 1/2/3/4/5/6" << std::endl;
 				std::cout << blue << " 1. GDP" << std::endl;
 				std::cout << blue << " 2. Total Imports" << std::endl;
 				std::cout << blue << " 3. Total Exports" << std::endl;
 				std::cout << blue << " 4. Elasticity of Importation" << std::endl;
 				std::cout << blue << " 5. Elasticity of Exportation" << std::endl;
 				std::cout << blue << " 6. A" << std::endl;
-				std::cout << blue << " 7. Cancel" << std::endl;
 
 				std::cin >> choice2b;
 				
-				if(choice2b==1 && choice2b==2 && choice2b==3 && choice2b!=4 && choice2b!=5 && choice2b!=6 && choice2b!=7){
-					std::cout << blue << "Error : please choose 1, 2, 3, 4 or 5" << std::endl;
+				if(choice2b==1 && choice2b==2 && choice2b==3 && choice2b!=4 && choice2b!=5 && choice2b!=6){
+					std::cout << red << "Error : please choose 1, 2, 3, 4, 5 or 6" << std::endl;
 				}
-			}while (choice2b==1 && choice2b==2 && choice2b==3 && choice2b!=4&& choice2b!=5);
+			}while (choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4&& choice2b!=5 && choice2b!=6);
 			
 			//Calls function updatecountry with different input (usa/canada/mexico) depending on the user's choice
 			if (choice2a==1){
@@ -66,24 +61,75 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			}
 		}	
 		
+		//To update data about a market
+		else if (choice1==2){
+			
+			do{
+				std::cout << blue << "Which market ? 1/2/3/4" << std::endl;
+				std::cout << blue << " 1. Food" << std::endl;
+				std::cout << blue << " 2. Machinery and transport equipment" << std::endl;
+				std::cout << blue << " 3. Mineral fuels" << std::endl;
+			
+				std::cin>> choice3a;
+					
+				if (choice3a !=1 && choice3a!=2 && choice3a!=3){
+					std::cout << red << "Error : please choose 1, 2 or 3" << std::endl;
+				}
+			} while (choice3a !=1 && choice3a!=2 && choice3a!=3);	
+			
+			do {
+				std::cout << blue << "Update exportations from : 1/2/3" << std::endl;
+				choice3b= choicecountry(country1, country2, country3);
+
+				if (choice3b==0) {
+					std::cout << red << "Error : please choose 1, 2, or 3" << std::endl;
+				}
+			}while (choice3b==0);
+				
+			do {
+				std::cout << blue << "Update exportations to : 1/2/3" << std::endl;
+				choice3c= choicecountry(country1, country2, country3);
+				if (choice3c==0) {
+					std::cout << red << "Error : please choose 1, 2, or 3" << std::endl;
+				}
+			}while (choice3c==0);
+			
+		
+			//Case where user chooses same country as origin and destination of exports
+			if (choice3b == choice3c) {
+				std::cout << red << "Error : please pick two different countries" << std::endl;
+			}
+			//Call the updatemarket function with different arguments depending on the user's choices
+			else if (choice3a==1){
+				updatemarket(market1, choice3b, choice3c, choice3a);
+			}
+					 
+			else if (choice3a==2){
+				updatemarket(market2, choice3b, choice3c, choice3a);
+			}
+			
+			else if (choice3a==1){
+				updatemarket(market3, choice3b, choice3c, choice3a);
+			}
+		}
+		
 	}while(choice1!=1 && choice1!=2 && choice1!=3 && choice1!=4);
 }
 
 ///\fn int choicecountry
 ///\brief general function that lets you choose between the 3 coutries
-int choicecountry(){
+int choicecountry(country* country1, country* country2, country* country3){
 	//give the options
     Color::Modifier blue(Color::FG_BLUE);
 	
 	int choice;
-	std::cout << blue << " 1. United States" << std::endl;
-	std::cout << blue << " 2. Canada"<< std::endl;
-	std::cout << blue << " 3. Mexico"<< std::endl;
-	std::cout << blue << " 4. Cancel"<< std::endl;
+	std::cout << blue << " 1. " << (*country1).name << std::endl;
+	std::cout << blue << " 2. "<< (*country2).name << std::endl;
+	std::cout << blue << " 3. "<< (*country3).name << std::endl;
 		
 	std::cin >> choice;
 		
-	if (choice==1 || choice ==2 || choice==3 || choice ==4){
+	if (choice==1 || choice ==2 || choice==3){
 		return(choice);
 	}
 	else {return(0);}
