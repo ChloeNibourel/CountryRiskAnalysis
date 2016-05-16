@@ -27,7 +27,9 @@ int main() {
 	market machinery;
 	market fuel;
 	
-	getdata (&usa, &canada, &mexico, &food, &machinery, &fuel);
+	exportsnetwork nafta;
+	
+	getdata (&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 	
 	
 	int choice; 
@@ -50,7 +52,7 @@ int main() {
 
 // switch: send the choice to the good function
 	switch (choice) {
-			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel);
+			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
 			/*case 2: update();
 				break;

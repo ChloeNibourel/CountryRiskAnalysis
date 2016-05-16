@@ -22,3 +22,10 @@ class market{
 	
 	std::array<std::array<double, 2>, 6> exchange;	
 };
+
+///\class exportsnetwork
+///\brief contains data about total exports between countries
+class exportsnetwork {
+	public:
+	std::array<std::array<double, 3>, 3> exports;
+};

@@ -1,98 +1,15 @@
+///\file readdatas.cpp
+///\brief contains all functions that read data from excel file
+
 #include <iostream>
 #include "../headers/colors.h"
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/readdata.h"
 
-/// \file readdatas.cpp
-/// \brief show datas available for a given country
-
-/// function read() : choose a country to have its
-/// GDP, Total export, Export to other countries (total and by fields)
-/// Countries: Canada, USA, Mexico
-/// fields: Mineral fuels, Food, Machinery and transport equipments
-
-
-///\fn read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3)
-///\brief lets the user chose what data he wants to read
-void read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3) {
-	int choice1, ctry, mkt;
-
-	//ask the questions in blue and errors in red
-    Color::Modifier blue(Color::FG_BLUE);
-    Color::Modifier red(Color::FG_RED);
-    Color::Modifier def(Color::FG_DEFAULT);
-	do {
-		std::cout << blue << "Are you interested in datas about a market or a country ? 1/2" << std::endl;
-		std::cout << blue << " 1. Market" << std::endl;
-		std::cout << blue << " 2. Country" << std::endl;
-		std::cout << blue << " 3. Cancel" << std::endl;
-		std::cin>> choice1;
-		
-		if(choice1==1){
-			do{
-				//chose a market	
-				std::cout << blue << "Which market are you interested in ? 1/2/3" << std::endl;
-				std::cout << blue << " 1. Food" << std::endl;
-				std::cout << blue << " 2. Machinery and transport equipment" << std::endl;
-				std::cout << blue << " 3. Fuel" << std::endl;
-				std::cout << blue << " 4. Cancel" << std::endl;
-			
-				std::cin>> mkt;
-				
-				if(mkt==1){
-					readmarket(market1);
-				}
-				else if (mkt==2){
-					readmarket(market2);
-				}
-				else if (mkt==3){
-					readmarket(market3);
-				}
-				else if (mkt!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< std::endl;
-				}
-			}while(mkt!=1 && mkt!=2 && mkt!=3 && mkt!=4);
-			//If the user makes an invalid choice he can choose again
-		}
-
-		else if(choice1==2){
-			do{
-				//chose a country	
-				std::cout << blue << "Which country are you interested in ? 1/2/3" << std::endl;
-				std::cout << blue << " 1. United States" << std::endl;
-				std::cout << blue << " 2. Canada" << std::endl;
-				std::cout << blue << " 3. Mexico" << std::endl;
-				std::cout << blue << " 4. Cancel" << std::endl;
-
-				std::cin>> ctry;
-			
-				if(ctry==1){
-					readcountry(country1);
-				}
-				else if (ctry==2){
-					readcountry(country2);
-				}
-				else if (ctry==3){
-					readcountry(country3);
-				}
-				else if (ctry!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< std::endl;
-				}
-			} while(ctry!=1 && ctry !=2 && ctry!=3 && ctry!=4);
-			//If the user makes an invalid choice he can choose again
-			
-		}	
-	
-		else if (choice1!=3){
-			std::cout << red << "Error: choose 1, 2 or 3"<< std::endl;
-		}
-	}while (choice1!=1 && choice1!=2 && choice1!=3); ///\bug When someone enters something else than an int the program goes in infinite loops
-	//If the user makes an invalid choice he can choose again
-}
 
 ///\fn readcountry(country* mycountry)
-///\brief function shows to the user the datas used to simulate the country he chose to see
+///\brief function shows to the user all the datas from the country he chose to see
 void readcountry(country* mycountry){
 	std::cout << std::endl;
 	std::cout << "Datas we use for " << (*mycountry).name << std::endl;
@@ -104,23 +21,58 @@ void readcountry(country* mycountry){
 	std::cout << std::endl;	
 }
 
+///\fn readmarket
+///\brief function shows to the user all the data from the country he chose to see
 void readmarket(market* mymarket){
 	std::cout << std::endl;
 	std::cout << "Datas for the market of " << (*mymarket).good << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << "Amounts exchanged in billion USD " << (*mymarket).good << std::endl;
+	std::cout << "Amounts exchanged in billion USD " << std::endl;
 	std::cout << "\t \t \t \t FROM" << std::endl;
 	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
 	std::cout << "\t USA \t \t X \t" << (*mymarket).exchange[0][0] << "\t"<< (*mymarket).exchange[1][0] << std::endl;
 	std::cout << "TO \t Canada \t" << (*mymarket).exchange[2][0] << "\t X \t"<< (*mymarket).exchange[3][0] << std::endl;
 	std::cout << "\t Mexico \t" << (*mymarket).exchange[4][0] <<"\t" << (*mymarket).exchange[5][0] <<"\t X \t"<< std::endl;
 	
-	std::cout << "Percentage of total exports between the countries " << (*mymarket).good << std::endl;
+	std::cout << "Percentage of total exports between the countries " << std::endl;
 	std::cout << "\t \t \t \t FROM" << std::endl;
 	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
 	std::cout << "\t USA \t \t X \t" << (*mymarket).exchange[0][1] << "\t"<< (*mymarket).exchange[1][1] << std::endl;
 	std::cout << "TO \t Canada \t" << (*mymarket).exchange[2][1] << "\t X \t"<< (*mymarket).exchange[3][1] << std::endl;
 	std::cout << "\t Mexico \t" << (*mymarket).exchange[4][1] <<"\t" << (*mymarket).exchange[5][1] <<"\t X \t"<< std::endl;
 }
+
+///\fn
+///\brief function shows the user the matrix of total exports between countries
+void readexports (exportsnetwork* mynetwork){
+	std::cout << std::endl;
+	std::cout << "Total exports between the countries " << std::endl;
+	std::cout << "\t \t FROM" << std::endl;
+	std::cout << "\t USA \t Canada  Mexico" << std::endl;
+	for (int i=0; i<3; ++i){
+		//Switch to write a different country name on each line of the matrix
+		switch(i){
+			case 0: std::cout << "USA \t"; break;
+			case 1: std::cout << "Canada \t"; break;
+			case 2: std::cout << "Mexico \t"; break;
+		}
+		for (int j=0; j<3; ++j){
+			std::cout << (*mynetwork).exports[i][j] << "\t";
+		}
+		std::cout << std::endl;	
+	}
+}
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 

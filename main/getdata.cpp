@@ -10,7 +10,7 @@
 
 ///\fn getdata
 ///\brief loads an excel file and calls functions to read from it
-void getdata (country* country1, country* country2, country* country3, market* market1, market* market2, market* market3){
+void getdata (country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork){
 
 	libxl::Book* book= xlCreateXMLBook();
 
@@ -21,14 +21,15 @@ void getdata (country* country1, country* country2, country* country3, market* m
 		libxl::Sheet* sheet1 = (*book).getSheet(1);
 		if(sheet0 && sheet1){
 			
-			getmarket(book, sheet0, market1, 1);
+			getmarket(book, sheet0, market1, 1);  // The integer in the arguments is used to know which country's data should be retrieved
 			getmarket(book, sheet0, market2, 2);
 			getmarket(book, sheet0, market3, 3);
 			
-			getcountry(book, sheet1, country1, 1); 
+			getcountry(book, sheet1, country1, 1);  // The integer in the arguments is the number of the column corresponding to the coutry in Excel file
 			getcountry(book, sheet1, country2, 2);
 			getcountry(book, sheet1, country3, 3);
-			// The integer in the arguments is the number of the column corresponding to the coutry in Excel file
+			
+			getexports(book, sheet0, mynetwork);
 		}
 		else {
 			std::cout<<"Error when loading the sheets from the data file"<<std::endl;
@@ -92,3 +93,13 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 	(*mycountry).A= (*sheet).readNum(i, j);
 
 } 
+
+///\fn getexports
+///\brief gets values of total exports between the three countries
+void getexports(libxl::Book* book, libxl::Sheet* sheet, exportsnetwork* mynetwork){
+	for (int i=0; i<3; ++i){
+		for (int j=0; j<3; ++j){
+			(*mynetwork).exports[i][j]=(*sheet).readNum(23+i, 2+j);
+		}
+	}
+}
