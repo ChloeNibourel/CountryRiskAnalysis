@@ -15,10 +15,8 @@ class market{
 	exchange[1]= canada -> mexico
 	exchange[1]= mexico -> us
 	exchange[1]= mexico -> canada
-	*/
 	
-	
-	/*Inside array<double, 2> :
+	Inside array<double, 2> :
 	First component of the array is amount of exchanges in billions
 	Second component of the array is percentage of total exchanges between the two countries */
 	

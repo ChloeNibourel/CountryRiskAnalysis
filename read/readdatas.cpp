@@ -41,13 +41,13 @@ void read(country* country1, country* country2, country* country3, market* marke
 				std::cin>> mkt;
 				
 				if(mkt==1){
-					//readmarket(market1);
+					readmarket(market1);
 				}
 				else if (mkt==2){
-					//readmarket(market2);
+					readmarket(market2);
 				}
 				else if (mkt==3){
-					//readmarket(market3);
+					readmarket(market3);
 				}
 				else if (mkt!=4){
 					std::cout << red << "Error: choose 1, 2, 3 or 4"<< std::endl;
@@ -87,22 +87,40 @@ void read(country* country1, country* country2, country* country3, market* marke
 		else if (choice1!=3){
 			std::cout << red << "Error: choose 1, 2 or 3"<< std::endl;
 		}
-	}while (choice1!=1 && choice1!=2 && choice1!=3);
+	}while (choice1!=1 && choice1!=2 && choice1!=3); ///\bug When someone enters something else than an int the program goes in infinite loops
 	//If the user makes an invalid choice he can choose again
 }
 
 ///\fn readcountry(country* mycountry)
 ///\brief function shows to the user the datas used to simulate the country he chose to see
 void readcountry(country* mycountry){
-	std::cout<< std::endl;
-	std::cout << "Country : " << (*mycountry).name << std::endl;
+	std::cout << std::endl;
+	std::cout << "Datas we use for " << (*mycountry).name << std::endl;
 	std::cout << "GDP : " << (*mycountry).income << " Billion USD" << std::endl;
 	std::cout << "Elasticity of importation : " << (*mycountry).elasticityimports << std::endl;
 	std::cout << "Elasticity of exportation : " << (*mycountry).elasticityexports << std::endl;
 	std::cout << "Total imports : " << (*mycountry).totalimports << " Billion USD" << std::endl;
 	std::cout << "Total exports : " << (*mycountry).totalexports << " Billion USD" << std::endl;
-	std::cout<< std::endl;
-	
+	std::cout << std::endl;	
 }
 
+void readmarket(market* mymarket){
+	std::cout << std::endl;
+	std::cout << "Datas for the market of " << (*mymarket).good << std::endl;
+	std::cout << std::endl;
+	
+	std::cout << "Amounts exchanged in billion USD " << (*mymarket).good << std::endl;
+	std::cout << "\t \t \t \t FROM" << std::endl;
+	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
+	std::cout << "\t USA \t \t X \t" << (*mymarket).exchange[0][0] << "\t"<< (*mymarket).exchange[1][0] << std::endl;
+	std::cout << "TO \t Canada \t" << (*mymarket).exchange[2][0] << "\t X \t"<< (*mymarket).exchange[3][0] << std::endl;
+	std::cout << "\t Mexico \t" << (*mymarket).exchange[4][0] <<"\t" << (*mymarket).exchange[5][0] <<"\t X \t"<< std::endl;
+	
+	std::cout << "Percentage of total exports between the countries " << (*mymarket).good << std::endl;
+	std::cout << "\t \t \t \t FROM" << std::endl;
+	std::cout << "\t \t \t USA \t Canada  Mexico" << std::endl;
+	std::cout << "\t USA \t \t X \t" << (*mymarket).exchange[0][1] << "\t"<< (*mymarket).exchange[1][1] << std::endl;
+	std::cout << "TO \t Canada \t" << (*mymarket).exchange[2][1] << "\t X \t"<< (*mymarket).exchange[3][1] << std::endl;
+	std::cout << "\t Mexico \t" << (*mymarket).exchange[4][1] <<"\t" << (*mymarket).exchange[5][1] <<"\t X \t"<< std::endl;
+}
 
