@@ -13,6 +13,7 @@
 #include "../headers/market.h"
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
+#include "../headers/updatedata.h"
 
 ///\fn main
 ///\brief creates variables for countries and markets, and asks the user what he wants to do
@@ -44,8 +45,8 @@ int main() {
 	do {
 		std::cout << std::endl;
 		std::cout << blue << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
-		std::cout << " 1. Read datas used"<<std::endl;
-		std::cout << " 2. Update datas used"<<std::endl;
+		std::cout << " 1. Read datas"<<std::endl;
+		std::cout << " 2. Update datas"<<std::endl;
 		std::cout << " 3. Simulate a shock"<<std::endl;	
 		std::cout << " 4. Exit the program"<< def << std::endl;
 
@@ -55,9 +56,9 @@ int main() {
 	switch (choice) {
 			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			/*case 2: update();
+			case 2: updatechoice(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			case 3: simulate();
+			/*case 3: simulate();
 				break;*/
 			case 4: 
 				break;
