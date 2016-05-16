@@ -18,20 +18,20 @@ void read(country* country1, country* country2, country* country3, market* marke
     Color::Modifier def(Color::FG_DEFAULT);
 	do {
 		std::cout << blue << "Are you interested in datas about a market or a country ? 1/2" << std::endl;
-		std::cout << blue << " 1. Market" << std::endl;
-		std::cout << blue << " 2. Country" << std::endl;
-		std::cout << blue << " 3. Total exports matrix" << std::endl;
-		std::cout << blue << " 4. Cancel" << std::endl;
+		std::cout << " 1. Market" << std::endl;
+		std::cout << " 2. Country" << std::endl;
+		std::cout << " 3. Total exports matrix" << std::endl;
+		std::cout << " 4. Cancel" << def << std::endl;
 		std::cin>> choice;
 		
 		if(choice==1){
 			do{
 				//chose a market	
 				std::cout << blue << "Which market are you interested in ? 1/2/3" << std::endl;
-				std::cout << blue << " 1. Food" << std::endl;
-				std::cout << blue << " 2. Machinery and transport equipment" << std::endl;
-				std::cout << blue << " 3. Fuel" << std::endl;
-				std::cout << blue << " 4. Cancel" << std::endl;
+				std::cout << " 1. Food" << std::endl;
+				std::cout << " 2. Machinery and transport equipment" << std::endl;
+				std::cout << " 3. Fuel" << std::endl;
+				std::cout << " 4. Cancel" << def << std::endl;
 			
 				std::cin>> mkt;
 				
@@ -45,7 +45,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 					readmarket(market3);
 				}
 				else if (mkt!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< std::endl;
+					std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
 				}
 			}while(mkt!=1 && mkt!=2 && mkt!=3 && mkt!=4);
 			//If the user makes an invalid choice he can choose again
@@ -55,10 +55,10 @@ void read(country* country1, country* country2, country* country3, market* marke
 			do{
 				//chose a country	
 				std::cout << blue << "Which country are you interested in ? 1/2/3" << std::endl;
-				std::cout << blue << " 1. United States" << std::endl;
-				std::cout << blue << " 2. Canada" << std::endl;
-				std::cout << blue << " 3. Mexico" << std::endl;
-				std::cout << blue << " 4. Cancel" << std::endl;
+				std::cout << " 1. United States" << std::endl;
+				std::cout << " 2. Canada" << std::endl;
+				std::cout << " 3. Mexico" << std::endl;
+				std::cout << " 4. Cancel" << def << std::endl;
 
 				std::cin>> ctry;
 			
@@ -72,7 +72,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 					readcountry(country3);
 				}
 				else if (ctry!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< std::endl;
+					std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
 				}
 			} while(ctry!=1 && ctry !=2 && ctry!=3 && ctry!=4);
 			//If the user makes an invalid choice he can choose again
@@ -84,7 +84,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		}
 		
 		else if (choice!=4){
-			std::cout << red << "Error: choose 1, 2 or 3"<< std::endl;
+			std::cout << red << "Error: choose 1, 2 or 3"<< def << std::endl;
 		}
 	}while (choice!=1 && choice!=2 && choice!=3 && choice!=4); ///\bug When someone enters something else than an int the program goes in infinite loops
 	//If the user makes an invalid choice he can choose again
