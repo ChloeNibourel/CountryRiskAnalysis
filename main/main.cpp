@@ -52,6 +52,12 @@ int main() {
 
 		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
 
+		if(std::cin.fail() ){ //if type wasn't right
+            std::cin.clear(); //clear stream
+            std::cin.ignore(); //ignore left over data
+			choice=0;
+		}
+
 // switch: send the choice to the good function
 	switch (choice) {
 			case 1: read(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);

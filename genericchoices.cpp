@@ -17,10 +17,18 @@ int choicecountry(country* country1, country* country2, country* country3){
 	std::cout << blue << " 1. " << (*country1).name << std::endl;
 	std::cout << " 2. "<< (*country2).name << std::endl;
 	std::cout << " 3. "<< (*country3).name << std::endl;
+	std::cout << " 4. Cancel" << std::endl;
 		
 	std::cin >> choice;
-		
-	if (choice==1 || choice ==2 || choice==3){
+	
+	
+	if(std::cin.fail() ){ //if type wasn't right
+        std::cin.clear(); //clear stream
+        std::cin.ignore(); //ignore left over data
+		choice=0;
+	}
+	
+	if (choice==1 || choice ==2 || choice==3 || choice==4){
 		return(choice);
 	}
 	else {return(0);}

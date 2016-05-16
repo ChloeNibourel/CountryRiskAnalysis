@@ -24,6 +24,11 @@ void read(country* country1, country* country2, country* country3, market* marke
 		std::cout << " 3. Total exports matrix" << std::endl;
 		std::cout << " 4. Cancel" << def << std::endl;
 		std::cin>> choice;
+		if(std::cin.fail() ){ //if type wasn't right
+            std::cin.clear(); //clear stream
+            std::cin.ignore(); //ignore left over data
+			choice=0;
+		}
 		
 		if(choice==1){
 			do{
@@ -35,6 +40,12 @@ void read(country* country1, country* country2, country* country3, market* marke
 				std::cout << " 4. Cancel" << def << std::endl;
 			
 				std::cin>> mkt;
+				
+				if(std::cin.fail() ){ //if type wasn't right
+            		std::cin.clear(); //clear stream
+            		std::cin.ignore(); //ignore left over data
+					mkt=0;
+				}
 				
 				if(mkt==1){
 					readmarket(market1);
@@ -80,7 +91,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		}
 		
 		else if (choice!=4){
-			std::cout << red << "Error: choose 1, 2 or 3"<< def << std::endl;
+			std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
 		}
 	}while (choice!=1 && choice!=2 && choice!=3 && choice!=4); ///\bug When someone enters something else than an int the program goes in infinite loops
 	//If the user makes an invalid choice he can choose again
