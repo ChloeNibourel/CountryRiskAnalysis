@@ -26,13 +26,23 @@ double GDP(const country& mycountry, float nexports, float nimports) {
 /// \Detail The GDPShockImpact takes as inputs country and a variable representing the shock to GDP called GDPChange := Percent change in GDP. If we see growth (GDPChange > 0) in a country, it will increase the demand for its imports. Thus we can expect its primary trading partners to increase the volume of their exports. If rather, we see a recession (GDPChange < 0) in a country, it will decrease the demand of their imports. Thus there is a risk for its primary trading partners' exports. 
 
 void GDPShockImpact(const country& mycountry, double GDPChange) {
-	if (GDPChange > 0) {
-		std::cout << "Increased demand for " << mycountry.name << "'s imports. Good time to invest in " << mycountry.othercountryexports << std::endl; /// \bug include othercountryexports in country's class. We want the program to output the other countries' names and export to domestic country.
-		}
-	if (GDPChange <= 0) {
-		std::cout << "Decreased demand for " << mycountry.name << "'s imports. Risk for" << 			mycountry.othercountryexports << std::endl;
-		}
+	if (GDPChange > 2) {
+		std::cout << "Invest in " << mycountry.othercountryexports << "." << std::endl;
+		std::cout << "Good growth levels. Low risk.";
 	}
+	if (GDPChange > 0 & GDPChange <= 2) {
+		std::cout << "Invest in " << mycountry.othercountryexports << "." << std::enl;
+		std::cout << "Slow growth. Medium risk."
+	if (GDPChange = 0) {
+		std::cout << "No growth. Medium risk for " << mycountry.othercountryexports << ".";
+	}
+	if (GDPChange < 0 & GDPChange >= -1) {
+		std::cout << "Recession. High Risk for " << mycountry.othercountryexports << "."; 
+	}
+	if (GDPChange < -1) {
+		std::cout << "Big recession. Do not invest in " << mycountry.othercountryexports << 			"."; 
+	}
+}
 
 /// \func ExchangeRateShockImpact
 /// \brief Impact of an exchange rate appreciation or depreciation on imports exports and GDP
@@ -49,7 +59,7 @@ void ExchangeRateShockImpact(const country& mycountry, double ExchRChange) {
 	double newexports = changeexports*mycountry.totalexports;
 	double newincome = GDP(mycountry, newexports, newexports);
 	double incomechange = (newincome - mycountry.income)/mycountry.income;
-	if (ExchRChange > 0) { ///Appreciation
+	if (ExchRChange > 0) { ///Appreciation		
 		std::cout << mycountry.name << " will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ". ";
 		GDPShockImpact(mycountry, incomechange);
 	}
@@ -107,5 +117,4 @@ int main() {
 	Mexico.exportmarkets = "Mexico's Pharmaceutical, Food, and Petrol markets";
 	InflationRateShockImpact(Mexico, -5); 
 }
-
 
