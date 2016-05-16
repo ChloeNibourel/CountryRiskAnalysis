@@ -15,7 +15,7 @@
 /// \Detail This function calculates a countries GDP as a function of domestic consuption, total exports and total imports. The variable A = country.income - (country.totalexports - country.totalimports). In other words, A is the GDP when we exclude the trade balance. A will not change in our model unless it is updated.  
 
 double GDP(const country& mycountry, float nexports, float nimports) {
-	double GDP = mycountry.A + nexports - nimports;	
+	double GDP = (*mycountry).A + nexports - nimports;	
 	return GDP;
 	}
 
@@ -27,37 +27,36 @@ double GDP(const country& mycountry, float nexports, float nimports) {
 
 void GDPShockImpact(const country& mycountry, double change) {
 	if (change > 2) {
-		std::cout << "Good growth levels. Low risk for " << mycountry.name << "'s import markets.";
+		std::cout << "Good growth levels. Low risk for " << (*mycountry).name << "'s import markets.";
 	}
 	if (change > 0 & GDPChange <= 2) {
-		std::cout << "Slow growth. Medium risk for " << mycountry.name << "'s import markets."; 
+		std::cout << "Slow growth. Medium risk for " << (*mycountry).name << "'s import markets."; 
 	if (change = 0) {
-		std::cout << "No growth. Medium risk for " << mycountry.name << "'s import markets.";
+		std::cout << "No growth. Medium risk for " << (*mycountry).name << "'s import markets.";
 	}
 	if (change < 0 & GDPChange >= -1) {
-		std::cout << "Recession. High Risk for " << mycountry.name << "'s import markets."; 
+		std::cout << "Recession. High Risk for " << (*mycountry).name << "'s import markets."; 
 	}
 	if (change < -1) {
-		std::cout << "Big recession. Do not invest in " << mycountry.name << "'s import markets."; 
+		std::cout << "Big recession. Do not invest in " << (*mycountry).name << "'s import markets."; 
 	}
 }
 
 /// \func ExchangeRateShockImpact
 /// \brief Impact of an exchange rate appreciation or depreciation on imports exports and GDP
-/// \bug How does cpp read specific values.
 
 /// \Details ExchangeRate of country C will always refer to how many foreign currencies country C can buy with one unit of country C's currency (ex: If Pound is domestic and Euro foreign, and 1 Pound = 1.27 Euro, then the ExchangeRate is 1.27). Thus an appreciation relative to another currency means an increase in ExchangeRate. 
 
 /// The function takes as inputs a country and a shock to the exchange rate. An appreciation (ExchangeRate > 0) in the currency makes imports less expensive thus increasing the demand for imports while making exports more expensive thus decreasing the foreign for the domestic country's exports. The opposite for a Depreciation (ExchangeRate <= 0).  We can calculate a prediction of the change in imports and exports using the elasticity of imports and exports. Using this we can calculate a prediction for the change in the domestic country's income. If the function is called, it will output the impact on trade and will generate the GDPShockImpact using the predicted income change. 
 
-void ExchangeRateShockImpact(const country& domesticcountry, const country& foreigncountry, double ExchRChange) {
-	double changeimports = ExchRChange*domesticcountry.elasticityimports;
-	double changeexports = ExchRChange*domesticcountry.elasticityexports;
-	double newimports = changeimports*mycountry.totalimports;
-	double newexports = changeexports*mycountry.totalexports;
-	double newincome = GDP(mycountry, newexports, newexports);
-	double incomechange = (newincome - mycountry.income)/mycountry.income;
-	if (ExchRChange > 0) { ///Appreciation		
+void ExchangeRateShockImpact(const country& domesticcountry, const country& foreigncountry, int choice1, int choice2, double change) {	
+	double changeimports = change*(*domesticcountry).elasticityimports;
+	double changeexports = change*(*domesticcountry).elasticityexports;
+	double newimports = changeimports*(*nafta).exchange[choice2-1][choice1-1]; 
+	double newexports = changeexports*(*nafta).exchange[choice1-1][choice2-1];
+	double newincome = GDP(domesticcountry, newexports, newimports);
+	double incomechange = (newincome - (*domesticcountry).income)/(*domesticcountry).income;
+	if (change > 0) { ///Appreciation		
 		std::cout << mycountry.name << " will see an increased demand in imports and a decreased demand in exports. Good for" << mycountry.othercountryexports << ". Risk for " << mycountry.exportmarkets << ". ";
 		GDPShockImpact(mycountry, incomechange);
 	}
