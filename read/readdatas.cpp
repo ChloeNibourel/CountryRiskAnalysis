@@ -68,15 +68,5 @@ void readexports (exportsnetwork* mynetwork){
 	}
 }
 		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
+		  
 
