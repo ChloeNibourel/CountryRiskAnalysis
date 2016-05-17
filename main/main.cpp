@@ -1,6 +1,6 @@
 /// \file main.cpp
 /// \brief Choices: 1.Read 2.Update 3.Simulate 4.Exit
-///
+
 /// User have 4 choices opening the program
 /// 1.Read some datas used to simulate
 /// 2.Update some datas to improve the simulation
@@ -15,8 +15,8 @@
 #include "../headers/readdata.h"
 #include "../headers/updatedata.h"
 
-///\func main
-///\brief creates variables for countries and markets, and asks the user what he wants to do
+/// \fn main
+/// \brief creates variables for countries and markets, and asks the user what he wants to do
 int main() {
 
 	//Getting data from the Excel file into type country variables usa, canada, mexico and type market variables food, machinery, fuel
@@ -68,7 +68,7 @@ int main() {
 				break;
 			case 4: 
 				break;
-			default: std::cout << red << "Error, enter 1, 2, 3 or 4" << def << std::endl;
+			default: std::cout << red << "Error: please enter 1, 2, 3 or 4" << def << std::endl;
 		}
 		
 	} while (choice!=4);
