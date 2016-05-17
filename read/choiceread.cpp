@@ -6,10 +6,9 @@
 #include "../headers/choices.h"
 
 /// \file choiceread.cpp
-/// \Lets the user chose what type of data he wants to read
+/// \brief lets the user choose what type of data he wants to read
 
-///\func read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3)
-///\brief lets the user chose what data he wants to read
+
 void read(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
 	int choice, ctry, mkt;
 
@@ -57,7 +56,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 					readmarket(market3);
 				}
 				else if (mkt!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
+					std::cout << red << "Error: please enter 1, 2, 3 or 4"<< def << std::endl;
 				}
 			}while(mkt!=1 && mkt!=2 && mkt!=3 && mkt!=4);
 			//If the user makes an invalid choice he can choose again
@@ -88,8 +87,8 @@ void read(country* country1, country* country2, country* country3, market* marke
 		}
 		
 		else if (choice!=4){
-			std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
+			std::cout << red << "Error: please enter 1, 2, 3 or 4"<< def << std::endl;
 		}
-	}while (choice!=1 && choice!=2 && choice!=3 && choice!=4); ///\bug When someone enters something else than an int the program goes in infinite loops
+	}while (choice!=1 && choice!=2 && choice!=3 && choice!=4); 
 	//If the user makes an invalid choice he can choose again
 }
