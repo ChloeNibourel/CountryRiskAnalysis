@@ -15,7 +15,4 @@ public:
 	double totalimports;
 	double totalexports;
 
-	double GDP();
-	void GDPShockImpact ();
-	void ExchangeRateShockImpact ();
 };

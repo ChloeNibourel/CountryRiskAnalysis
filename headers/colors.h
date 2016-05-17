@@ -1,4 +1,4 @@
-#include <ostream>
+#include <iostream>
 
 /// \file colors.h
 /// \brief defines the colors red, green, blue and default
