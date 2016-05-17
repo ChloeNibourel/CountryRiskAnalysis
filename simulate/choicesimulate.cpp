@@ -12,8 +12,10 @@
 /// \file choicesimulate.cpp
 /// \brief give the users the options for simulation
 
-void choicesimulate() {
+void choicesimulate(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
 	int choiceshock, countryshock;
+	double percentshock;
+	country sim;
 
 //loop to choose the type of shock
 	do {
@@ -35,20 +37,29 @@ void choicesimulate() {
 
 	// CASES: type of shock
 
-		if (choiceshock==1 || choiceshcok==3 || choiceshock==4) { //For the cases of GDP, e and inflation the additional informations needed are the same
+		if (choiceshock==1 || choiceshock==3 || choiceshock==4) { //For the cases of GDP, e and inflation the additional informations needed are the same
 			do {
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
 				countryshock= choicecountry(country1, country2, country3);
 			}while (countryshock==0);
-			
+			switch(countryshock) {
+				case 1: sim = *country1;
+					break;
+				case 2: sim = *country2;
+					break;
+				case 3: sim = *country3;
+					break;
+				default: std::cout << "Country not available in your location.";
+
+			}	
 			if(countryshock!=4){ //If the user doesn't choose to cancel
-				double percentshock= percentageshock();
+				percentshock= percentageshock();
 			}
 			
 			switch (choiceshock){
-				case 1: //Call function shockGDP(countryshock, percentageshock)
-				case 3: //Call function shockGDP(countryshock, percentageshock)
-				case 4: //Call function shockGDP(countryshock, percentageshock)
+				case 1: GDPShockImpact(sim, percentshock);
+				case 3: InterestRateShockImpact(sim, countryshock, percentshock);
+				case 4: InflationRateShockImpact(sim, countryshock, percentshock);
 			}
 		}
 		
