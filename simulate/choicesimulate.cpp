@@ -49,8 +49,6 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 					break;
 				case 3: sim = *country3;
 					break;
-				default: std::cout << "Country not available in your location.";
-
 			}	
 			if(countryshock!=4){ //If the user doesn't choose to cancel
 				percentshock= percentageshock();
@@ -69,18 +67,38 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				domcountry= choicecountry(country1, country2, country3);
 			}while (domcountry==0);
 			
-			if(domcountry==4){ //If the user has chosen to cancel don't offer any further choice
+			if(domcountry!=4){ //If the user has chosen to cancel don't offer any further choice
 				do {
 					std::cout << blue << "Foreign country : 1/2/3/4" << def << std::endl;
 					forcountry= choicecountry(country1, country2, country3);
 				}while (forcountry==0);
 			}
-			
-			if(domcountry==4 || forcountry==4){ //If the user has chosen to cancel don't offer any further choice
+			switch(domcountry) {
+				case 1: sim1 = *country1;
+					break;
+				case 2: sim1 = *country2;
+					break;
+				case 3: sim1 = *country3;
+					break;
+			}
+			switch(forcountry) {
+				case 1: sim2 = *country1;
+					break;
+				case 2: sim2 = *country2;
+					break;
+				case 3: sim2 = *country3;
+					break;
+			}
+			if(domcountry!=4 && forcountry!=4){ //If the user has chosen to cancel don't offer any further choice
 				percentshock=percentageshock();
 			}
-			
-			//Call shock exchange rate : first do a switch for domestic country, then for foreign country, then call the function itself
+			if (domcountry != forcountry) {
+				ExchangeRateShockImpact(sim1, sim2, domcountry, forcountry, percentshock);
+			}
+			else {
+				std::cout << "Choose two different countries.";
+			}
+			//Add do while until the person has selected two different countries
 		}
 	}while(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6)
 
