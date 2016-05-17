@@ -6,7 +6,7 @@
 
 /// \file country.cpp
 /// \brief Macro level functions for country class
-/// \bug Remember to delete the int main() in this file. It only exists to test the functions. We also may want to include different risk levels (small change in interest rates => small change in exchange rate => low risk). 
+/// \bug If there is a problem, it probably has to do with inputting classes. Change the inputs as the address of the class.
 
 /// \Detail The country class has functions that allow us to determine the impact of four types of macroeconomic shock: 1. Shock to GDP. 2. Shock to Exchange Rates. 3. Shock to Domestic Interest Rates. 4. Shock to Domestic Inflation Rates. We also include a function that calculates GDP.  
 
