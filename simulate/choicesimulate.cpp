@@ -100,6 +100,47 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 			}
 			//Add do while until the person has selected two different countries
 		}
+		
+		
+		if(choiceshock==5){
+			//Choosing a country
+			do {
+				std::cout << blue << "Domestic country : 1/2/3/4" << def << std::endl;
+				countryshock= choicecountry(country1, country2, country3);
+			}while (countryshock==0);
+			
+			//Choosing a market
+			if(countryshock!=4){ //If the user has chosen to cancel don't offer any further choice
+				do {
+					std::cout << blue << "Which market are you interested in ? 1/2/3/4" << std::endl;
+					std::cout << " 1. Food" << std::endl;
+					std::cout << " 2. Machinery and transport equipment" << std::endl;
+					std::cout << " 3. Fuel" << std::endl;
+					std::cout << " 4. Cancel" << def << std::endl;
+			
+					std::cin>> mkt;
+				
+					if(std::cin.fail() ){ //if type wasn't right
+            			std::cin.clear(); //clear stream
+            			std::cin.ignore(); //ignore left over data
+						mkt=0;
+					}
+					
+					if (mkt!=1 && mkt!=2 && mkt!=3 && mkt!=4){
+						std::cout << "Error : enter 1, 2, 3 or 4" << std::endl;
+					}
+					
+				}while (mkt!=1 && mkt!=2 && mkt!=3 && mkt!=4);
+				
+			}
+			
+			//Entering a percentage of shock
+			if(countryshock!=4 || mkt!=4){ //If the user has chosen to cancel don't offer any further choice
+				percentshock=percentageshock();
+			}
+			
+			//Swith countryshock to determine a country, switch mkt to determine market, call shockproduction
+		}
 	}while(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6)
 
 }

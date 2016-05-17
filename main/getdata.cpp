@@ -8,8 +8,7 @@
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
 
-/// \fn getdata
-/// \brief loads an excel file and calls functions to read from it
+
 void getdata (country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork){
 
 	libxl::Book* book= xlCreateXMLBook();
@@ -45,9 +44,6 @@ void getdata (country* country1, country* country2, country* country3, market* m
 
 
 
-
-/// \fn getmarket
-/// \brief gets values about markets from the excel file and attributes them to market class variables
 void getmarket(libxl::Book* book, libxl::Sheet* sheet, market* mymarket, int k){
 	int i, d;
 	switch(k){
@@ -74,8 +70,6 @@ void getmarket(libxl::Book* book, libxl::Sheet* sheet, market* mymarket, int k){
 }
 
 
-/// \fn getcountry
-/// \brief gets values about countries from the excel file and attributes them to country class variables
 void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int j){
 	switch(j){
 		case 1: (*mycountry).name="USA"; break;
@@ -104,8 +98,7 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 
 } 
 
-/// \fn getexports
-/// \brief gets values of total exports between the three countries
+
 void getexports(libxl::Book* book, libxl::Sheet* sheet, exportsnetwork* mynetwork){
 	for (int i=0; i<3; ++i){
 		for (int j=0; j<3; ++j){
