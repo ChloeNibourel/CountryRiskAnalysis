@@ -1,14 +1,13 @@
-///\file updatedatas.cpp
-///\brief modify type country variable AND excel file with new data
+/// \file updatedatas.cpp
+/// \brief modify type country variable AND excel file with new data
 #include <iostream>
-#include"libxl.h"
+#include "libxl.h"
 #include "../headers/colors.h"
 #include "../headers/country.h"
 #include "../headers/market.h"
 #include "../headers/updatedata.h"
 
-///\func updatecountry 
-///\brief takes as argument a country and a data to change, asks the user for the new value, updates both the country variable and the excel file
+
 void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	int i, j;
 	double newvalue, currentvalue;
@@ -94,8 +93,7 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	}	
 }
 
-///\func updatecountry 
-///\brief takes as argument a market, and two countries, asks the user for the new value of exports between those countries, updates both the market var and the excel file
+
 void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenmarket){
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
@@ -166,8 +164,7 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 }
 
-///\func updatetotexports 
-///\brief takes as argument two countries, asks the user for the new value of exports between those countries, updates both the exportsnetwork var and the excel file
+
 void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto){
 
 	//colors
