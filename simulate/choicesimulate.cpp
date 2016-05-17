@@ -13,7 +13,7 @@
 /// \brief give the users the options for simulation
 
 void choicesimulate(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
-	int choiceshock, countryshock;
+	int choiceshock, countryshock, mkt;
 	double percentshock;
 	country sim;
 
@@ -134,12 +134,31 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				
 			}
 			
+			
+
 			//Entering a percentage of shock
 			if(countryshock!=4 || mkt!=4){ //If the user has chosen to cancel don't offer any further choice
 				percentshock=percentageshock();
 			}
 			
-			//Swith countryshock to determine a country, switch mkt to determine market, call shockproduction
+			switch(countryshock) {
+				case 1: sim = *country1;
+					break;
+				case 2: sim = *country2;
+					break;
+				case 3: sim = *country3;
+					break;
+			}
+			switch(mkt) {
+				case 1: simm = *food;
+					break;
+				case 2: simm = *machinery;
+					break;
+				case 3: simm = *fuel;
+					break;
+			}
+			ProductionShock(sim, countryshock, simm, percentshock);
+			// call shockproduction
 		}
 		
 		
