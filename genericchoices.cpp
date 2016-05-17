@@ -1,5 +1,5 @@
-///\file genericchoices.cpp
-///\brief includes functions that let the user choose between options, for choices which are made repeateadly over the program
+/// \file genericchoices.cpp
+/// \brief includes functions that let the user choose between options, for choices which are made repeateadly over the program
 
 #include <iostream>
 #include "headers/colors.h"
@@ -11,8 +11,7 @@
     Color::Modifier red(Color::FG_RED);
     Color::Modifier def(Color::FG_DEFAULT);
 
-///\fn int choicecountry
-///\brief general function that lets you choose between the 3 coutries
+
 int choicecountry(country* country1, country* country2, country* country3){
 	//give the options
 	int choice;
@@ -45,7 +44,7 @@ double percentageshock(){
 	double shock;
 	bool error;
 	do{
-		std::cout << blue << "Enter the percentage of shock :"<< std::endl << "Example : if you have a 3% decrease in GDP, enter -3" <<def << std::endl;
+		std::cout << blue << "Enter the percentage of shock :"<< std::endl << "Example : if you have a 3 percent decrease in GDP, enter -3" <<def << std::endl;
 		std::cin >> shock;
 
 		if(std::cin.fail() ){ //if type wasn't right
