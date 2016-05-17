@@ -27,7 +27,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		if(std::cin.fail() ){ //if type wasn't right
             std::cin.clear(); //clear stream
             std::cin.ignore(); //ignore left over data
-			choice=0;
+			choice=0; //set value of choice to zero so that we stay in the initial "do-while" loop so that the user gets to choose again
 		}
 		
 		if(choice==1){
@@ -77,9 +77,6 @@ void read(country* country1, country* country2, country* country3, market* marke
 				}
 				else if (ctry==3){
 					readcountry(country3);
-				}
-				else if (ctry!=4){
-					std::cout << red << "Error: choose 1, 2, 3 or 4"<< def << std::endl;
 				}
 			} while(ctry!=1 && ctry !=2 && ctry!=3 && ctry!=4);
 			//If the user makes an invalid choice he can choose again
