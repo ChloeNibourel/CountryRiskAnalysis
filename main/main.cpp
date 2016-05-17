@@ -14,6 +14,7 @@
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
 #include "../headers/updatedata.h"
+#include "../headers/simulate.h"
 
 /// \fn main
 /// \brief creates variables for countries and markets, and asks the user what he wants to do
