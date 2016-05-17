@@ -3,13 +3,14 @@
 #include <cmath>
 #include "country.h"
 
+
 /// \file country.cpp
 /// \brief Macro level functions for country class
 /// \bug Remember to delete the int main() in this file. It only exists to test the functions. We also may want to include different risk levels (small change in interest rates => small change in exchange rate => low risk). 
 
 /// \Detail The country class has functions that allow us to determine the impact of four types of macroeconomic shock: 1. Shock to GDP. 2. Shock to Exchange Rates. 3. Shock to Domestic Interest Rates. 4. Shock to Domestic Inflation Rates. We also include a function that calculates GDP.  
 
-/// \func GDP 
+/// \fn GDP 
 /// \brief Calculates GDP
 
 /// \Detail This function calculates a countries GDP as a function of domestic consuption, total exports and total imports. The variable A = country.income - (country.totalexports - country.totalimports). In other words, A is the GDP when we exclude the trade balance. A will not change in our model unless it is updated.  
@@ -129,4 +130,5 @@ void InflationRateShockImpact(const country& mycountry, int choice, double chang
 		InterestRateShockImpact(mycountry, choice, IntRChange);
 	}
 }
+
 
