@@ -11,12 +11,10 @@
     Color::Modifier red(Color::FG_RED);
     Color::Modifier def(Color::FG_DEFAULT);
 
-///\func int choicecountry
+///\fn int choicecountry
 ///\brief general function that lets you choose between the 3 coutries
 int choicecountry(country* country1, country* country2, country* country3){
 	//give the options
-
-
 	int choice;
 	std::cout << blue << " 1. " << (*country1).name << std::endl;
 	std::cout << " 2. "<< (*country2).name << std::endl;
@@ -37,4 +35,21 @@ int choicecountry(country* country1, country* country2, country* country3){
 	}
 	else {return(0);}
 
+}
+
+double percentageshock(){
+	double shock;
+	bool error;
+	do{
+		std::cout << blue << "Enter the percentage of shock :"<< std::endl << "Example : if you have a 3% decrease in GDP, enter -3" <<def << std::endl;
+		std::cin >> shock;
+
+		if(std::cin.fail() ){ //if type wasn't right
+    	    std::cin.clear(); //clear stream
+    	    std::cin.ignore(); //ignore left over data
+			std::cout<<red << "Error : enter a numerical value" << def << std::endl;
+		}
+	}while(error=1);	
+	return(shock);
+	
 }
