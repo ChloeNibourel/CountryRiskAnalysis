@@ -33,11 +33,11 @@ int choicecountry(country* country1, country* country2, country* country3){
 	if (choice==1 || choice ==2 || choice==3 || choice==4){
 		return(choice);
 	}
-	
-	if (choice==0) {
+
+	else {
 		std::cout << red << "Error : please choose 1, 2, 3 or 4" << def << std::endl;
+		return(0);
 	}
-	else {return(0);}
 
 }
 
