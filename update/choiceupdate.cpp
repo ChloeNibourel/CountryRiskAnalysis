@@ -12,6 +12,7 @@
 ///\brief gives the user options of types of updating he can make, calls the corresponding update functions from updatedatas.cpp
 void updatechoice(country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork) {
 	int choice1, choice2a, choice2b, choice3a, choice3b, choice3c, from, to;
+
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
     Color::Modifier red(Color::FG_RED);
@@ -20,33 +21,33 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 	do{
 		// Choose which kind of datas you want to update 
 		std::cout << blue << "What do you want to update ? 1/2/3/4" << std::endl;
-		std::cout << blue << " 1. A country data : GDP, Total export, Elasticities" << std::endl;
-		std::cout << blue << " 2. A market data : export between 2 countries in a specific field"<< std::endl;
-		std::cout << blue << " 3. Total exports between two countries"<< std::endl;
-		std::cout << blue << " 4. Cancel"<< std::endl;
+		std::cout << " 1. A country data : GDP, Total export, Elasticities" << std::endl;
+		std::cout << " 2. A market data : export between 2 countries in a specific field"<< std::endl;
+		std::cout << " 3. Total exports between two countries"<< std::endl;
+		std::cout << " 4. Cancel" << def << std::endl;
 		
 		std::cin >> choice1;
 		
 		//To update data about a country
 		if (choice1==1) {
 			do {
-				std::cout << blue << "Which country do you want to update ? 1/2/3/4" << std::endl;
+				std::cout << blue << "Which country do you want to update ? 1/2/3/4" << def << std::endl;
 				choice2a= choicecountry(country1, country2, country3);
 				if (choice2a==0) {
-					std::cout << blue << "Error : please choose 1, 2, 3 or 4" << std::endl;
+					std::cout << red << "Error : please choose 1, 2, 3 or 4" << def << std::endl;
 				}
 			}while (choice2a==0);
 				
 			if(choice2a!=4){ //If user chose to cancel his action and go back to the main menu, don't offer a second choice
 				do {
 					std::cout << blue << "Which data do you want to update ? 1/2/3/4/5/6" << std::endl;
-					std::cout << blue << " 1. GDP" << std::endl;
-					std::cout << blue << " 2. Total Imports" << std::endl;
-					std::cout << blue << " 3. Total Exports" << std::endl;
-					std::cout << blue << " 4. Elasticity of Importation" << std::endl;
-					std::cout << blue << " 5. Elasticity of Exportation" << std::endl;
-					std::cout << blue << " 6. A" << std::endl;
-					std::cout << blue << " 7. Cancel" << std::endl;
+					std::cout << " 1. GDP" << std::endl;
+					std::cout << " 2. Total Imports" << std::endl;
+					std::cout << " 3. Total Exports" << std::endl;
+					std::cout << " 4. Elasticity of Importation" << std::endl;
+					std::cout << " 5. Elasticity of Exportation" << std::endl;
+					std::cout << " 6. A" << std::endl;
+					std::cout << " 7. Cancel" << def << std::endl;
 
 					std::cin >> choice2b;
 					
@@ -56,7 +57,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 						choice2b=0;
 					}
 					if(choice2b==1 && choice2b==2 && choice2b==3 && choice2b!=4 && choice2b!=5 && choice2b!=6){
-						std::cout << red << "Error : please choose 1, 2, 3, 4, 5 or 6" << std::endl;
+						std::cout << red << "Error : please choose 1, 2, 3, 4, 5 or 6" << def << std::endl;
 					}
 				}while (choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4&& choice2b!=5 && choice2b!=6 && choice2b!=7);
 			}
@@ -83,10 +84,10 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			
 			do{
 				std::cout << blue << "Which market ? 1/2/3/4" << std::endl;
-				std::cout << blue << " 1. Food" << std::endl;
-				std::cout << blue << " 2. Machinery and transport equipment" << std::endl;
-				std::cout << blue << " 3. Mineral fuels" << std::endl;
-				std::cout << blue << " 4. Cancel" << std::endl;
+				std::cout << " 1. Food" << std::endl;
+				std::cout << " 2. Machinery and transport equipment" << std::endl;
+				std::cout << " 3. Mineral fuels" << std::endl;
+				std::cout << " 4. Cancel" << def << std::endl;
 			
 				std::cin>> choice3a;
 						
@@ -97,7 +98,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 				}
 					
 				if (choice3a !=1 && choice3a!=2 && choice3a!=3 && choice3a!=4){
-					std::cout << red << "Error : please choose 1, 2, 3 or 4" << std::endl;
+					std::cout << red << "Error : please choose 1, 2, 3 or 4" << def << std::endl;
 				}
 			} while (choice3a !=1 && choice3a!=2 && choice3a!=3 && choice3a!=4);//while the user doesn't enter a valid choice, make him choose again
 			
@@ -125,7 +126,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 		
 				//Case where user chooses same country as origin and destination of exports
 				if (choice3b == choice3c) {
-					std::cout << red << "Error : please pick two different countries" << std::endl;
+					std::cout << red << "Error : please pick two different countries" << def << std::endl;
 				}
 				//Call the updatemarket function with different arguments depending on the user's choices
 				else if (choice3a==1){
@@ -145,11 +146,11 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 		//To update total exports data
 		else if (choice1==3){
 			do{
-				std::cout << blue << "You want to change total exports from : 1/2/3/4" << std::endl;
+				std::cout << blue << "You want to change total exports from : 1/2/3/4" << def << std::endl;
 				from = choicecountry(country1, country2, country3);
 				//Case of invalid choice by the user
 				if (from==0){
-					std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << std::endl;
+					std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << def << std::endl;
 				}
 			}while(from==0); // while the user doesn't enter a valid choice, make him choose again
 			
@@ -159,7 +160,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 					to = choicecountry(country1, country2, country3);
 					//Case of invalid choice by the user
 					if (from==0){
-						std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << std::endl;
+						std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << def << std::endl;
 					}
 				}while(to==0); // while the user doesn't enter a valid choice, make him choose again
 			}
@@ -171,7 +172,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 		
 		//Case where the user entered an invalid choice in the furst choice
 		else if (choice1!=4) {
-			std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << std::endl;
+			std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << def << std::endl;
 		}
 		
 	}while(choice1!=1 && choice1!=2 && choice1!=3 && choice1!=4);
