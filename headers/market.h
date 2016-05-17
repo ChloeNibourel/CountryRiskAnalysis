@@ -1,8 +1,12 @@
+/// \file market.h
+/// \brief create a class market and a class exportnetwork
+
 #include <string>
 #include <array>
 #include <vector>
-///\class market
-///\brief info about exchanges between usa - mexico - canada in a specific market : amount of exchanges and percentage of total exchanges
+
+/// \class market
+/// \brief info about exchanges between usa - mexico - canada in a specific market : amount of exchanges and percentage of total exchanges
 class market{
 	public:
 	std::string good;
@@ -24,8 +28,8 @@ class market{
 	std::array<std::array<double, 3>, 3> exchange;	
 };
 
-///\class exportsnetwork
-///\brief contains data about total exports between countries
+/// \class exportsnetwork
+/// \brief contains data about total exports between countries
 class exportsnetwork {
 	/*
 	exports[0][0]= us -> us =0
