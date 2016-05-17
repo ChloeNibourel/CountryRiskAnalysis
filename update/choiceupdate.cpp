@@ -27,6 +27,12 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 		std::cout << " 4. Cancel" << def << std::endl;
 		
 		std::cin >> choice1;
+
+		if(std::cin.fail() ){ //if type wasn't right
+    			std::cin.clear(); //clear stream
+            		std::cin.ignore(); //ignore left over data
+			choice1=0; //make the program offer the choice again by entering a wrong value
+		}
 		
 		//To update data about a country
 		if (choice1==1) {
@@ -52,11 +58,11 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 					std::cin >> choice2b;
 					
 					if(std::cin.fail() ){ //if type wasn't right
-        				std::cin.clear(); //clear stream
-            			std::cin.ignore(); //ignore left over data
+        					std::cin.clear(); //clear stream
+            					std::cin.ignore(); //ignore left over data
 						choice2b=0;
 					}
-					if(choice2b==1 && choice2b==2 && choice2b==3 && choice2b!=4 && choice2b!=5 && choice2b!=6){
+					if(choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4 && choice2b!=5 && choice2b!=6 && choice2b!=7){
 						std::cout << red << "Error : please choose 1, 2, 3, 4, 5 or 6" << def << std::endl;
 					}
 				}while (choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4&& choice2b!=5 && choice2b!=6 && choice2b!=7);
@@ -156,7 +162,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			
 			if(from!=4){
 				do{
-					std::cout << "to : " << std::endl;
+					std::cout << blue << "to : " << def << std::endl;
 					to = choicecountry(country1, country2, country3);
 					//Case of invalid choice by the user
 					if (from==0){
