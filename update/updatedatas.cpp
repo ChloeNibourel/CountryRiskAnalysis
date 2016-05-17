@@ -38,14 +38,14 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	//Ask user for the new data
 	do{
 		std::cout << blue << "Current value is " << currentvalue << std::endl;
-		std::cout << "Enter the new value :" << std::endl;
+		std::cout << "Enter the new value :" << def << std::endl;
 	
 		std::cin>>newvalue;
 	
 		if(std::cin.fail() ){ //if type wasn't right
     	    std::cin.clear(); //clear stream
     	    std::cin.ignore(); //ignore left over data
-			std::cout << "Error : enter a numerical value" << std::endl;
+			std::cout << red << "Error : enter a numerical value" << def << std::endl;
 			error=1;
 		}
 	}(while error==1); ///\bug : when someone enters a non-numerical value the std::cin.fail() doesn't notice it
@@ -64,11 +64,11 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 			save = (*book).save("data.xlsx");
 		}
 		
-		else {std::cout<<"Error when loading the sheet from the data file"<<std::endl;}	
+		else {std::cout << red <<"Error when loading the sheet from the data file"<< def << std::endl;}	
 
 	}
 	else {
-		std::cout<<"Error when loading the data file"<<std::endl;
+		std::cout << red <<"Error when loading the data file"<< def << std::endl;
 	}
 	
 
@@ -135,7 +135,7 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 	//Ask user for the new data
 	std::cout << blue << "Current value is " << (*mymarket).exchange[countryfrom-1][countryto-1] << std::endl;
-	std::cout << "Enter the new value :" << std::endl;
+	std::cout << "Enter the new value :" << def << std::endl;
 	
 	std::cin>>newvalue;
 	
@@ -150,11 +150,11 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 			save = (*book).save("data.xlsx");
 		}
 		
-		else {std::cout<<"Error when loading the sheet from the data file"<<std::endl;}	
+		else {std::cout<< red <<"Error when loading the sheet from the data file"<< def << std::endl;}	
 
 	}
 	else {
-		std::cout<<"Error when loading the data file"<<std::endl;
+		std::cout<< red << "Error when loading the data file"<< def <<std::endl;
 	}
 	
 	//If this updating was a success, update the type country variable
@@ -165,9 +165,11 @@ void updatemarket(market* mymarket, int countryfrom, int countryto, int chosenma
 	
 }
 
-///\func updatecountry 
+///\func updatetotexports 
 ///\brief takes as argument two countries, asks the user for the new value of exports between those countries, updates both the exportsnetwork var and the excel file
 void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto){
+
+	//colors
     Color::Modifier blue(Color::FG_BLUE);
     Color::Modifier red(Color::FG_RED);
     Color::Modifier def(Color::FG_DEFAULT);
@@ -177,7 +179,7 @@ void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto)
 	
 	//Ask user for the new data
 	std::cout << blue << "Current value is " << (*mynetwork).exports[countryfrom-1][countryto-1] << std::endl;
-	std::cout << "Enter the new value :" << std::endl;
+	std::cout << "Enter the new value :" << def << std::endl;
 	
 	std::cin>>newvalue;
 		
@@ -191,11 +193,11 @@ void updatetotexports(exportsnetwork* mynetwork, int countryfrom, int countryto)
 			save = (*book).save("data.xlsx");
 		}
 		
-		else {std::cout<<"Error when loading the sheet from the data file"<<std::endl;}	
+		else {std::cout << red <<"Error when loading the sheet from the data file"<< def << std::endl;}	
 
 	}
 	else {
-		std::cout<<"Error when loading the data file"<<std::endl;
+		std::cout<< red <<"Error when loading the data file"<< def <<std::endl;
 	}
 	
 
