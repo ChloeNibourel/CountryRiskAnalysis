@@ -39,9 +39,6 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			do {
 				std::cout << blue << "Which country do you want to update ? 1/2/3/4" << def << std::endl;
 				choice2a= choicecountry(country1, country2, country3);
-				if (choice2a==0) {
-					std::cout << red << "Error : please choose 1, 2, 3 or 4" << def << std::endl;
-				}
 			}while (choice2a==0);
 				
 			if(choice2a!=4){ //If user chose to cancel his action and go back to the main menu, don't offer a second choice
@@ -113,18 +110,12 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 					std::cout << blue << "Update exportations from : 1/2/3" << std::endl;
 					choice3b= choicecountry(country1, country2, country3);
 
-					if (choice3b==0) {
-						std::cout << red << "Error : please choose 1, 2, 3 or 4" << std::endl;
-					}
 				}while (choice3b==0);
 			}
 			if(choice3a!=4 && choice3b!=4){ // Don't offer a second choice if the user chose to cancel earlier
 				do {
 					std::cout << blue << "Update exportations to : 1/2/3/4" << std::endl;
 					choice3c= choicecountry(country1, country2, country3);
-					if (choice3c==0) {
-						std::cout << red << "Error : please choose 1, 2, 3 or 4" << std::endl;
-					}
 				}while (choice3c==0);
 			}
 			
@@ -154,20 +145,12 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 			do{
 				std::cout << blue << "You want to change total exports from : 1/2/3/4" << def << std::endl;
 				from = choicecountry(country1, country2, country3);
-				//Case of invalid choice by the user
-				if (from==0){
-					std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << def << std::endl;
-				}
 			}while(from==0); // while the user doesn't enter a valid choice, make him choose again
 			
 			if(from!=4){
 				do{
 					std::cout << blue << "to : " << def << std::endl;
 					to = choicecountry(country1, country2, country3);
-					//Case of invalid choice by the user
-					if (from==0){
-						std::cout << red <<  "Error : please choose 1, 2, 3 or 4" << def << std::endl;
-					}
 				}while(to==0); // while the user doesn't enter a valid choice, make him choose again
 			}
 			

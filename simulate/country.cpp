@@ -52,8 +52,8 @@ void GDPShockImpact(const country& mycountry, double change) {
 void ExchangeRateShockImpact(const country& domesticcountry, const country& foreigncountry, int choice1, int choice2, double change) {	
 	double changeimports = change*(*domesticcountry).elasticityimports;
 	double changeexports = change*(*domesticcountry).elasticityexports;
-	double newimports = changeimports*(*nafta).exchange[choice2-1][choice1-1]; 
-	double newexports = changeexports*(*nafta).exchange[choice1-1][choice2-1];
+	double newimports = changeimports*(*nafta).exports[choice2-1][choice1-1]; 
+	double newexports = changeexports*(*nafta).exports[choice1-1][choice2-1];
 	double newincome = GDP(domesticcountry, newexports, newimports);
 	double incomechange = (newincome - (*domesticcountry).income)/(*domesticcountry).income;
 	if (change > 0) { ///Appreciation		
