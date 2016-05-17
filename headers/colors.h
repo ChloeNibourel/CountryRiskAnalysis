@@ -1,5 +1,8 @@
 #include <ostream>
 
+/// \file colors.h
+/// \brief defines the colors red, green, blue and default
+
 namespace Color {
     enum Code {
         FG_RED      = 31,
