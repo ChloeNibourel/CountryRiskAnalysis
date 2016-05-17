@@ -58,10 +58,18 @@ void choicesimulate() {
 				domcountry= choicecountry(country1, country2, country3);
 			}while (domcountry==0);
 			
-			do {
-				std::cout << blue << "Domestic country : 1/2/3/4" << def << std::endl;
-				forcountry= choicecountry(country1, country2, country3);
-			}while (forcountry==0);
+			if(domcountry==4){ //If the user has chosen to cancel don't offer any further choice
+				do {
+					std::cout << blue << "Foreign country : 1/2/3/4" << def << std::endl;
+					forcountry= choicecountry(country1, country2, country3);
+				}while (forcountry==0);
+			}
+			
+			if(domcountry==4 || forcountry==4){ //If the user has chosen to cancel don't offer any further choice
+				percentshock=percentageshock();
+			}
+			
+			//Call shock exchange rate : first do a switch for domestic country, then for foreign country, then call the function itself
 		}
 	}while(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6)
 
