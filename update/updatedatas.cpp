@@ -12,8 +12,8 @@
 void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 	int i, j;
 	double newvalue, currentvalue;
-	bool write, save, 
-	bool error=0;
+	bool write, save; 
+	bool error;
 	
 	//ask the questions in blue and errors in red
     Color::Modifier blue(Color::FG_BLUE);
@@ -37,18 +37,19 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 			
 	//Ask user for the new data
 	do{
+		error=0;
 		std::cout << blue << "Current value is " << currentvalue << std::endl;
 		std::cout << "Enter the new value :" << def << std::endl;
-	
+
 		std::cin>>newvalue;
 	
 		if(std::cin.fail() ){ //if type wasn't right
-    	    std::cin.clear(); //clear stream
-    	    std::cin.ignore(); //ignore left over data
+    	    		std::cin.clear(); //clear stream
+    	    		std::cin.ignore(); //ignore left over data
 			std::cout << red << "Error : enter a numerical value" << def << std::endl;
 			error=1;
 		}
-	}(while error==1); ///\bug : when someone enters a non-numerical value the std::cin.fail() doesn't notice it
+	} while (error==1); ///\bug : when someone enters a non-numerical value the std::cin.fail() doesn't notice it
 	
 	//Attributes to i and j the values of the row and column where this data is stored in Excel file
 	i=chosendata+1;
