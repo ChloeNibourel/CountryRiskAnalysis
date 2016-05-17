@@ -64,8 +64,8 @@ int main() {
 				break;
 			case 2: updatechoice(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			/*case 3: simulate();
-				break;*/
+			case 3: choicesimulate(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
+				break;
 			case 4: 
 				break;
 			default: std::cout << red << "Error: please enter 1, 2, 3 or 4" << def << std::endl;
