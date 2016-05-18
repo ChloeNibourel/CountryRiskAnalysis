@@ -26,9 +26,9 @@ void readmarket(market* mymarket){
 	
 	//Tabulation used to display datas in matrix form
 	std::cout << "Amounts exchanged in billion USD " << std::endl;
-	std::cout << "\t \t FROM:" << std::endl;
+	std::cout << "\t \t TO:" << std::endl;
 	std::cout << "\t USA \t Canada  Mexico" << std::endl;
-	std::cout << "TO:" << std::endl;
+	std::cout << "FROM:" << std::endl;
 	for (int i=0; i<3; ++i){
 		//Switch to write a different country name on each line of the matrix
 		switch(i){
@@ -47,9 +47,9 @@ void readmarket(market* mymarket){
 void readexports (exportsnetwork* mynetwork){
 	std::cout << std::endl;
 	std::cout << "Total exports between the countries " << std::endl;
-	std::cout << "\t \t FROM:" << std::endl;
+	std::cout << "\t \t TO:" << std::endl;
 	std::cout << "\t USA \t Canada  Mexico" << std::endl;
-	std::cout << "TO:" << std::endl;
+	std::cout << "FROM:" << std::endl;
 	for (int i=0; i<3; ++i){
 		//Switch to write a different country name on each line of the matrix
 		switch(i){
