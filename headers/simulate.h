@@ -4,12 +4,12 @@ void ProductionShock(  country* mycountry,   country* foreigncountry1,   country
 
 void GDPShockImpact(country* mycountry, country* foreigncountry1, country* foreigncountry2, int choice, int choicea, int choiceb,  market* market1, market* market2, market* market3, double change, exportsnetwork* nafta);
 
-void ExchangeRateShockImpact(  country* domesticcountry,   country* foreigncountry, int choice1, int choice2, double change,   exportsnetwork* nafta);
+void ExchangeRateShockImpact(country* domesticcountry, country* foreigncountry, int choice1, int choice2, market* market1, market* market2, market* market3, double change, exportsnetwork* nafta);
 
-void InterestRateShockImpact(  country* domesticcountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, double change,   exportsnetwork* nafta);
+void InterestRateShockImpact(country* domesticcountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, market* market1, market* market2, market* market3, double change, exportsnetwork* nafta);
 
 
-void InflationRateShockImpact(  country* mycountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, double change,   exportsnetwork* nafta);
+void InflationRateShockImpact(country* mycountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, market* market1, market* market2, market* market3, double change,   exportsnetwork* nafta);
 
 
 

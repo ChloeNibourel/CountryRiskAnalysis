@@ -72,11 +72,11 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				percentshock= percentageshock();
 			}
 			switch(countryshock) {
-				case 1: InterestRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
+				case 1: InterestRateShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 2: InterestRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
+				case 2: InterestRateShockImpact(country2, country1, country3, 2, 1, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 3: InterestRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
+				case 3: InterestRateShockImpact(country3, country1, country2, 3, 1, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
 			}	
 			
@@ -91,11 +91,11 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				percentshock= percentageshock();
 			}
 			switch(countryshock) {
-				case 1: InflationRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
+				case 1: InflationRateShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 2: InflationRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
+				case 2: InflationRateShockImpact(country2, country1, country3, 2, 1, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 3: InflationRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
+				case 3: InflationRateShockImpact(country3, country1, country2, 3, 1, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
 			}
 		
@@ -142,7 +142,7 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				percentshock=percentageshock();
 			}
 			if (domcountry != forcountry) {
-				ExchangeRateShockImpact(sim1, sim2, domcountry, forcountry, percentshock, mynetwork);
+				ExchangeRateShockImpact(sim1, sim2, domcountry, forcountry, market1, market2, market3, percentshock, 					mynetwork);
 			}
 		}
 		
