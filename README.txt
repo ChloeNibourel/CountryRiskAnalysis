@@ -29,9 +29,10 @@ Usage:
   http://www.libxl.com/download.html
   Extract libxl-3.6.5.0 and place in package folder
 
+  Enter your folder
   $ make
 
   $ ./program
   
 Documentation:
-(link available soon)
+file:///home/john/RiskAnalysis2/html/index.html
