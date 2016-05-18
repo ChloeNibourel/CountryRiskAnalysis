@@ -54,9 +54,9 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 			switch(countryshock) {
 				case 1: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 2: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
+				case 2: GDPShockImpact(country2, country1, country3, 2, 1, 3, market1, market2, market3, 						percentshock, mynetwork);
 					break;
-				case 3: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
+				case 3: GDPShockImpact(country3, country1, country2, 3, 1, 2, market1, market2, market3, 						percentshock, mynetwork);
 					break;
 			}	
 		

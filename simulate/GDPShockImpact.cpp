@@ -42,29 +42,27 @@ void GDPShockImpact(country* mycountry, country* foreigncountry1, country* forei
 	if (change > 2) {
 		std::cout << "Good growth levels for "<< (*mycountry).name << "'s economy" << std::endl;
 		std::cout << "Low risk for " << (*foreigncountry1).name << " and " << (*foreigncountry2).name << "'s exports to " <<  			(*mycountry).name << std::endl;
-		std::cout << "	Especially" << (*foreigncountry1).name << "'s " << (*mymarketfc1).name << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).name << " export market." << std::endl;
+		std::cout << "	Especially " << (*foreigncountry1).name << "'s " << (*mymarketfc1).good << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).good << " export market." << std::endl;
 	}
 	if (change > 0 && change <= 2) {
 		std::cout << "Slow growth for "<< (*mycountry).name << "'s economy" << std::endl;
 		std::cout << "Medium risk for " << (*foreigncountry1).name << " and " << (*foreigncountry2).name << "'s exports to " 			<< (*mycountry).name << std::endl;
-		std::cout << "	Especially" << (*foreigncountry1).name << "'s " << (*mymarketfc1).name << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).name << " export market." << std::endl;
+		std::cout << "	Especially " << (*foreigncountry1).name << "'s " << (*mymarketfc1).good << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).good << " export market." << std::endl;
 	}	
 	if (change == 0) {
 		std::cout << "No growth for "<< (*mycountry).name << "'s economy" << std::endl;
 		std::cout << "Medium risk for " << (*foreigncountry1).name << " and " << (*foreigncountry2).name << "'s exports to " 			<< (*mycountry).name << std::endl;
-		std::cout << "	Especially" << (*foreigncountry1).name << "'s " << (*mymarketfc1).name << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).name << " export market." << std::endl;
+		std::cout << "	Especially " << (*foreigncountry1).name << "'s " << (*mymarketfc1).good << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).good << " export market." << std::endl;
 	}
 	if (change < 0 && change >= -1) {
 		std::cout << "A recession for "<< (*mycountry).name << "'s economy" << std::endl;
 		std::cout << "High risk for " << (*foreigncountry1).name << " and " << (*foreigncountry2).name << "'s exports to " << 			(*mycountry).name << std::endl;
-		std::cout << "	Especially" << (*foreigncountry1).name << "'s " << (*mymarketfc1).name << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).name << " export market." << std::endl;
+		std::cout << "	Especially " << (*foreigncountry1).name << "'s " << (*mymarketfc1).good << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).good << " export market." << std::endl;
 	}
 	if (change < -1) {
-		std::cout << "A big recession for "<< (*mycountry).name << "'s economy" << std::endl;
-		std::cout << "Do not invest in " << (*mycountry).name << "'s import markets."; 
 		std::cout << "Big recession for "<< (*mycountry).name << "'s economy" << std::endl;
 		std::cout << "Do not invest in " << (*foreigncountry1).name << " and " << (*foreigncountry2).name << "'s exports to " 			<< (*mycountry).name << std::endl;
-		std::cout << "	Especially" << (*foreigncountry1).name << "'s " << (*mymarketfc1).name << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).name << " export market." << std::endl;
+		std::cout << "	Especially " << (*foreigncountry1).name << "'s " << (*mymarketfc1).good << " export market and " << 			(*foreigncountry2).name << "'s "<< (*mymarketfc2).good << " export market." << std::endl;
 	}
 }
 
