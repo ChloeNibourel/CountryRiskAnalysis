@@ -46,7 +46,7 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 			std::cout << red << "Error : enter a numerical value" << def << std::endl;
 			error=1;
 		}
-	} while (error==1); ///\bug : when someone enters a non-numerical value the std::cin.fail() doesn't notice it
+	} while (error==1);
 	
 	//Attributes to i and j the values of the row and column where this data is stored in Excel file
 	i=chosendata+1;
