@@ -51,11 +51,11 @@ int main() {
 		std::cout << " 3. Simulate a shock"<<std::endl;	
 		std::cout << " 4. Exit the program"<< def << std::endl;
 
-		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
+		std::cin>>choice;
 
 		if(std::cin.fail() ){ //if type wasn't right
-            std::cin.clear(); //clear stream
-            std::cin.ignore(); //ignore left over data
+          	  std::cin.clear(); //clear stream
+         	  std::cin.ignore(); //ignore left over data
 			choice=0;
 		}
 
