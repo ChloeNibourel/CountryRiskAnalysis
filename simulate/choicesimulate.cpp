@@ -43,8 +43,7 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 
 	// CASES: type of shock
 		//GDP shock
-		if (choiceshock==1) { //For the cases of GDP, e and inflation the additional informations needed are the same
-			/// \bug if you cancel after choosing 1, the program breaks down.
+		if (choiceshock==1) {
 			do {
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
 				countryshock= choicecountry(country1, country2, country3);
