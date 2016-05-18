@@ -2,8 +2,8 @@
 /// \brief includes functions that let the user choose between options, for choices which are made repeateadly over the program
 
 #include <iostream>
-#include "headers/colors.h"
-#include "headers/country.h"
+#include "../headers/colors.h"
+#include "../headers/country.h"
 
 
 	//colors
