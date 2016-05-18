@@ -11,7 +11,6 @@ public:
 	double elasticityimports;
 	double elasticityexports;
 	double income;
-	double A;
 	double totalimports;
 	double totalexports;
 
