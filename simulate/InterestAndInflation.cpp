@@ -5,13 +5,12 @@
 #include "../headers/market.h"
 #include "../headers/simulate.h"
 
-/// \fn InterestRateShockImpact
-/// \brief Determine impact of a shock to interest rates. 
-
-/// \Detail When there is an increase in interest rates, we see an increase in the domestic exchange rate since their is more demand for the domestic currency due to superior investment returns in that country. Thus an increase in interest rates will result in a currency appreciation and a decrease in interest rates will result in a currency depreciation. The function takes as inputs the country and the interest rate change, and outputs the effect on the exchange rate while calling the ExchangeRateShockImpact function. 
+/// \file InterestAndInflation.cpp
+/// \brief Defines the InterestRateShockImpact and InflationRateShockImpact functions
 
 void InterestRateShockImpact(country* domesticcountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, market* market1, market* market2, market* market3, double change,   exportsnetwork* nafta) {
-	double ExchRChange = change;	
+	double ExchRChange = change;	//An interest rate shock will imply a shock in the same direction on the exchange rate
+	//Function outputs depending onf the sign of the change
 	if (change > 0) {
 		std::cout << "Simulateneous appreciation of " << (*domesticcountry).name << "'s exchange rate with:" << std::endl;
 		std::cout << "	" << (*foreigncountry1).name << std::endl;
@@ -35,14 +34,9 @@ void InterestRateShockImpact(country* domesticcountry,   country* foreigncountry
 	}
 }
 
-/// \fn InflationRateShockImpact
-/// \brief Determine the impact of a shock of the inflation rate.
-
-
-/// \Detail When there is an increase in inflation, it results in an increase in the domestic interest rate since banks run a higher risk when they lend money. When there is a decrease in inflation we see a decrease in interest rates. The function takes an inputs the country and the inflation rate change, and outputs the effect on interest rates while calling the InterestRateShockImpact function.
-
 void InflationRateShockImpact(  country* mycountry,   country* foreigncountry1,   country* foreigncountry2, int choice, int choicea, int choiceb, market* market1, market* market2, market* market3, double change,   exportsnetwork* nafta) {
-	double IntRChange = change;
+	double IntRChange = change; //An inflation rate shock implies a shock on the interest rate in the same direction
+	//Function output depending on the sign of the shock
 	if (change > 0) {
 		std::cout << "Increase in interest rates." << std::endl;
 		InterestRateShockImpact(mycountry, foreigncountry1, foreigncountry2, choice, choicea, choiceb, market1, market2, 			market3, IntRChange, nafta);
