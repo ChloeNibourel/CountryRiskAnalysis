@@ -45,7 +45,7 @@ double percentageshock(){
 	bool error;
 	do{
 		error=0;
-		std::cout << blue << "Enter the percentage of shock :"<< std::endl << "Example : if you have a 3 percent decrease in GDP, enter -3" <<def << std::endl;
+		std::cout << blue << "Enter + or - and the percentage of shock :"<< std::endl << "Example : if you have a 3 percent decrease, enter -3" <<def << std::endl;
 		std::cin >> shock;
 
 		if(std::cin.fail() ){ //if type wasn't right

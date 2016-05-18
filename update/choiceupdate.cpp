@@ -48,8 +48,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 					std::cout << " 3. Total Exports" << std::endl;
 					std::cout << " 4. Elasticity of Importation" << std::endl;
 					std::cout << " 5. Elasticity of Exportation" << std::endl;
-					std::cout << " 6. A" << std::endl;
-					std::cout << " 7. Cancel" << def << std::endl;
+					std::cout << " 6. Cancel" << def << std::endl;
 
 					std::cin >> choice2b;
 					
@@ -58,10 +57,10 @@ void updatechoice(country* country1, country* country2, country* country3, marke
             					std::cin.ignore(); //ignore left over data
 						choice2b=0;
 					}
-					if(choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4 && choice2b!=5 && choice2b!=6 && choice2b!=7){
+					if(choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4 && choice2b!=5 && choice2b!=6){
 						std::cout << red << "Error : please choose 1, 2, 3, 4, 5 or 6" << def << std::endl;
 					}
-				}while (choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4&& choice2b!=5 && choice2b!=6 && choice2b!=7);
+				}while (choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4&& choice2b!=5 && choice2b!=6);
 			}
 			
 			if(choice2a!=4 && choice2b!=7){

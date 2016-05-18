@@ -10,22 +10,16 @@
 
 
 
-/// \fn MarketShock
-/// \brief Determine the impact of a market shock
-/// \bug Would using uscan/usmex change the marketvalue or the new value? We almost need markets to be a class defined to a country for this to work.
-
-/// We want to make a qualitative judgement on whether a change in one country's market will have a large or small impact on that country. We want to take as inputs: country, the effected market, and the dollar change in the market in billions. Basically, if the marketchange is negative, the country will export less and import more, thus corresponding to a decrease in that country. Since prices will likely increase in the domestic market due to a shock in the supply, its trading partners will likely demand more of their domestic market's goods => an increase in income => increase demand for imports. 
-
 void ProductionShock(country* mycountry, country* foreigncountry1, country* foreigncountry2, int choice, int choicea, int choiceb, market* mymarket, double change, exportsnetwork* nafta) {
 	double diff;	
 	double expforeigncountry1 = (*mymarket).exchange[choice-1][choicea-1];
 	double expforeigncountry2 = (*mymarket).exchange[choice-1][choiceb-1];
 	double impforeigncountry1 = (*mymarket).exchange[choicea-1][choice-1];
 	double impforeigncountry2 = (*mymarket).exchange[choiceb-1][choice-1];
-		///Percentage of total exports of foreign country 1 and 2
+		//Percentage of total exports of foreign country 1 and 2
 	double ptotalexpfc1 = (*mymarket).exchange[choicea-1][choice-1]/(*nafta).exports[choicea-1][choice-1];
 	double ptotalexpfc2 = (*mymarket).exchange[choiceb-1][choice-1]/(*nafta).exports[choiceb-1][choice-1];
-		///Definition of difference for country	
+		//Definition of difference for country	
 	if(impforeigncountry1 < impforeigncountry2) {
 		diff = (impforeigncountry2 - impforeigncountry1)/impforeigncountry2;
 	}
