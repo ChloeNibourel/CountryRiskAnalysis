@@ -23,25 +23,25 @@ double GDP(  country* mycountry, float nexports, float nimports) {
 
 /// \func GDPShockImpact
 /// \brief Determines the impact of a shock to GDP growth
-/// \bug Maybe we should include last growth in the class. Since a contraction has negative impacts on trading partners even if the country is growing (ex: China). Easy change.
+/// \bug Inputting -3 will end program.
 
 /// \Detail The GDPShockImpact takes as inputs country and a variable representing the shock to GDP called GDPChange := Percent change in GDP. If we see growth (GDPChange > 0) in a country, it will increase the demand for its imports. Thus we can expect its primary trading partners to increase the volume of their exports. If rather, we see a recession (GDPChange < 0) in a country, it will decrease the demand of their imports. Thus there is a risk for its primary trading partners' exports. 
 
 void GDPShockImpact(  country* mycountry, double change) {
 	if (change > 2) {
-		std::cout << "Good growth levels. Low risk for " << (*mycountry).name << "'s import markets.";
+		std::cout << "Good growth levels." << std::endl << "Low risk for " << (*mycountry).name << "'s import markets.";
 	}
 	if (change > 0 && change <= 2) {
-		std::cout << "Slow growth. Medium risk for " << (*mycountry).name << "'s import markets."; 
+		std::cout << "Slow growth." << std::endl << "Medium risk for " << (*mycountry).name << "'s import markets."; 
 	}	
-	if (change = 0) {
-		std::cout << "No growth. Medium risk for " << (*mycountry).name << "'s import markets.";
+	if (change == 0) {
+		std::cout << "No growth." << std::endl << "Medium risk for " << (*mycountry).name << "'s import markets.";
 	}
 	if (change < 0 && change >= -1) {
-		std::cout << "Recession. High Risk for " << (*mycountry).name << "'s import markets."; 
+		std::cout << "Recession." << std::endl << "High Risk for " << (*mycountry).name << "'s import markets."; 
 	}
 	if (change < -1) {
-		std::cout << "Big recession. Do not invest in " << (*mycountry).name << "'s import markets."; 
+		std::cout << "Big recession." << std::endl << "Do not invest in " << (*mycountry).name << "'s import markets."; 
 	}
 }
 
