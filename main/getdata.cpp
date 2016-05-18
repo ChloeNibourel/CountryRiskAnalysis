@@ -1,5 +1,5 @@
 /// \file getdata.cpp
-/// \brief gets data about countries from the excel (.xlsx) file and attributes the values to country class
+/// \brief gets data about countries from the excel (.xlsx) file and attributes the values to type country variables
 
 #include <iostream>
 #include "libxl.h"
@@ -92,9 +92,6 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 
 	++i;
 	(*mycountry).elasticityexports= (*sheet).readNum(i, j);
-
-	++i;
-	(*mycountry).A= (*sheet).readNum(i, j);
 
 } 
 

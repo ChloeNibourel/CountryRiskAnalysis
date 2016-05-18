@@ -30,8 +30,6 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 			currentvalue = (*mycountry).elasticityimports; break;
 		case 5:
 			currentvalue = (*mycountry).elasticityexports; break;
-		case 6:
-			currentvalue = (*mycountry).A; break;
 	}
 			
 	//Ask user for the new data
@@ -87,8 +85,6 @@ void updatecountry(country* mycountry,int chosencountry,  int chosendata){
 				(*mycountry).elasticityimports=newvalue; break;
 			case 5:
 				(*mycountry).elasticityexports=newvalue; break;
-			case 6:
-				(*mycountry).A=newvalue; break;
 		}
 	}	
 }
