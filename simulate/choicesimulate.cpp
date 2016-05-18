@@ -48,18 +48,18 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
 				countryshock= choicecountry(country1, country2, country3);
 			}while (countryshock==0);
-			switch(countryshock) {
-				case 1: sim = country1;
-					break;
-				case 2: sim = country2;
-					break;
-				case 3: sim = country3;
-					break;
-			}	
 			if(countryshock!=4){ //If the user doesn't choose to cancel
 				percentshock= percentageshock();
 			}
-			GDPShockImpact(sim, percentshock);
+			switch(countryshock) {
+				case 1: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
+					break;
+				case 2: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
+					break;
+				case 3: GDPShockImpact(country1, country2, country3, 1, 2, 3, market1, market2, market3, 						percentshock, mynetwork);
+					break;
+			}	
+		
 			
 		}
 		if (choiceshock == 3) {
