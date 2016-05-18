@@ -22,7 +22,6 @@ Package contents:
   update                update datas on source and choose which data to update
   simulate              simulate a shock on different variables
   data.xlsx             basics datas on exports between countries
-  genericchoices.cpp    choices often used
   
 Usage:
 
