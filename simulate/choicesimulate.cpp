@@ -29,7 +29,7 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 		std::cout << " 2. A shock on Exchange rate" << std::endl;
 		std::cout << " 3. A shock on Interest rate" << std::endl;
 		std::cout << " 4. A shock on Inflation rate" << std::endl;
-		std::cout << " 5. A shock on Production" << def << std::endl;
+		std::cout << " 5. A shock on Production" << std::endl;
 		std::cout << " 6. Cancel" << def << std::endl;
 
 		std::cin >> choiceshock;
@@ -41,26 +41,82 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 		}
 
 	// CASES: type of shock
-
+		//GDP shock
 		if (choiceshock==1) { //For the cases of GDP, e and inflation the additional informations needed are the same
 			do {
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
 				countryshock= choicecountry(country1, country2, country3);
 			}while (countryshock==0);
-			switch(countryshock) {
+			
+			
+			
+			if(countryshock!=4){ //If the user doesn't choose to cancel
+				percentshock= percentageshock();
+				
+				//Determine which country has been chosen and will be given as input of GDPShock
+				switch(countryshock) {
 				case 1: sim = country1;
 					break;
 				case 2: sim = country2;
 					break;
 				case 3: sim = country3;
 					break;
-			}	
-			if(countryshock!=4){ //If the user doesn't choose to cancel
-				percentshock= percentageshock();
+				}
+				
+				GDPShockImpact(sim, percentshock);
 			}
-			GDPShockImpact(sim, percentshock);
+			
 			
 		}
+		
+		//Exchange rate shock
+		if(choiceshock==2){
+			do{
+				//Choice of domestic country
+				do {
+					std::cout << blue << "Domestic country : 1/2/3/4" << def << std::endl;
+					domcountry= choicecountry(country1, country2, country3);
+				}while (domcountry==0);
+				
+				if(domcountry!=4){ //If the user has chosen to cancel don't offer any further choice
+					//Choice of foreign country
+					do {
+						std::cout << blue << "Foreign country : 1/2/3/4" << def << std::endl;
+						forcountry= choicecountry(country1, country2, country3);
+					}while (forcountry==0);
+				}
+				 
+				//Don't let the user choose the same countries
+				if(domcountry==forcountry){
+					std::cout << "Choose two different countries.";
+				}
+				
+			}while(domcountry==forcountry);
+
+			
+			if(domcountry!=4 && forcountry!=4){ //If the user has chosen to cancel don't offer any further choice
+				percentshock=percentageshock();
+				switch(domcountry) {
+					case 1: sim1 = country1;
+						break;
+					case 2: sim1 = country2;
+						break;
+					case 3: sim1 = country3;
+						break;
+				}
+				switch(forcountry) {
+					case 1: sim2 = country1;
+						break;
+					case 2: sim2 = country2;
+						break;
+					case 3: sim2 = country3;
+						break;
+				}
+				ExchangeRateShockImpact(sim1, sim2, domcountry, forcountry, percentshock, mynetwork);
+			}
+		}
+		
+		//Interest rate shock
 		if (choiceshock == 3) {
 			do {
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
@@ -69,82 +125,43 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 			
 			if(countryshock!=4){ //If the user doesn't choose to cancel
 				percentshock= percentageshock();
+				switch(countryshock) {
+					case 1: InterestRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
+						break;
+					case 2: InterestRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
+						break;
+					case 3: InterestRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
+						break;
+				}
 			}
-			switch(countryshock) {
-				case 1: InterestRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
-					break;
-				case 2: InterestRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
-					break;
-				case 3: InterestRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
-					break;
-			}	
+				
 			
 		}
 
+		//Inflation rate shock
 		if(choiceshock==4) {		
 			do {
 				std::cout << blue << "In which country would this shock happen ? 1/2/3/4" << def << std::endl;
 				countryshock= choicecountry(country1, country2, country3);
 			}while (countryshock==0);	
+			
 			if(countryshock!=4){ //If the user doesn't choose to cancel
 				percentshock= percentageshock();
-			}
-			switch(countryshock) {
-				case 1: InflationRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
-					break;
-				case 2: InflationRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
-					break;
-				case 3: InflationRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
-					break;
-			}
-		
-		}
-		
-		if(choiceshock==2){
-			do{
-				do {
-					std::cout << blue << "Domestic country : 1/2/3/4" << def << std::endl;
-					domcountry= choicecountry(country1, country2, country3);
-				}while (domcountry==0);
-				
-				if(domcountry!=4){ //If the user has chosen to cancel don't offer any further choice
-					do {
-						std::cout << blue << "Foreign country : 1/2/3/4" << def << std::endl;
-						forcountry= choicecountry(country1, country2, country3);
-					}while (forcountry==0);
-				}
-				
-				if(domcountry==forcountry){
-					std::cout << "Choose two different countries.";
-				}
-			}while(domcountry==forcountry);
-			switch(domcountry) {
-				case 1: sim1 = country1;
-					break;
-				case 2: sim1 = country2;
-					break;
-				case 3: sim1 = country3;
-					break;
-			}
-			switch(forcountry) {
-				case 1: sim2 = country1;
-					break;
-				case 2: sim2 = country2;
-					break;
-				case 3: sim2 = country3;
-					break;
-			}	
-
 			
-			if(domcountry!=4 && forcountry!=4){ //If the user has chosen to cancel don't offer any further choice
-				percentshock=percentageshock();
+				switch(countryshock) {
+					case 1: InflationRateShockImpact(country1, country2, country3, 1, 2, 3, percentshock, mynetwork);
+						break;
+					case 2: InflationRateShockImpact(country2, country1, country3, 2, 1, 3, percentshock, mynetwork);
+						break;
+					case 3: InflationRateShockImpact(country3, country1, country2, 3, 1, 3, percentshock, mynetwork);
+						break;
+				}
 			}
-			if (domcountry != forcountry) {
-				ExchangeRateShockImpact(sim1, sim2, domcountry, forcountry, percentshock, mynetwork);
-			}
+
+		
 		}
-		
-		
+			
+		//Production shock
 		if(choiceshock==5){
 			//Choosing a country
 			do {
@@ -180,28 +197,29 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 			
 
 			//Entering a percentage of shock
-			if(countryshock!=4 || mkt!=4){ //If the user has chosen to cancel don't offer any further choice
+			if(countryshock!=4 && mkt!=4){ //If the user has chosen to cancel don't offer any further choice
 				percentshock=percentageshock();
-			}
 			
-			switch(mkt) {
-				case 1: simm = market1;
-					break;
-				case 2: simm = market2;
-					break;
-				case 3: simm = market3;
-					break;
-			}			
-			switch(countryshock) {
-				case 1: 
-					ProductionShock(country1, country2, country3, 1, 2, 3, simm, percentshock, mynetwork);
-					break;
-				case 2: ProductionShock(country2, country1, country3, 2, 1, 3, simm, percentshock, mynetwork);
-					break;
-				case 3: ProductionShock(country3, country1, country2, 3, 2, 1, simm, percentshock, mynetwork);
-					break;
+				switch(mkt) {
+					case 1: simm = market1;
+						break;
+					case 2: simm = market2;
+						break;
+					case 3: simm = market3;
+						break;
+				}
+				
+				switch(countryshock) {
+					case 1: 
+						ProductionShock(country1, country2, country3, 1, 2, 3, simm, percentshock, mynetwork);
+						break;
+					case 2: ProductionShock(country2, country1, country3, 2, 1, 3, simm, percentshock, mynetwork);
+						break;
+					case 3: ProductionShock(country3, country1, country2, 3, 2, 1, simm, percentshock, mynetwork);
+							break;
+				}
 			}
-			
+
 		}
 		
 	}while(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6);
