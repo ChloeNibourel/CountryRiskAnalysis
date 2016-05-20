@@ -55,7 +55,7 @@ int main() {
 
 		if(std::cin.fail() ){ //if type wasn't right
           	  std::cin.clear(); //clear stream
-         	  std::cin.ignore(); //ignore left over data
+         	  std::cin.ignore(1000,'\n'); //ignore left over data
 			choice=0;
 		}
 

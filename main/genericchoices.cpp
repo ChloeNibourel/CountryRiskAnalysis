@@ -25,7 +25,7 @@ int choicecountry(country* country1, country* country2, country* country3){
 	
 	if(std::cin.fail() ){ //if type wasn't right
         std::cin.clear(); //clear stream
-        std::cin.ignore(); //ignore left over data
+        std::cin.ignore(1000,'\n'); //ignore leftover data : the next 1000 characters, until we reach a \n
 		choice=0;
 	}
 	
@@ -50,7 +50,7 @@ double percentageshock(){
 
 		if(std::cin.fail() ){ //if type wasn't right
     	    		std::cin.clear(); //clear stream
-    	    		std::cin.ignore(); //ignore left over data
+    	    		std::cin.ignore(1000,'\n'); //ignore leftover data
 			std::cout<<red << "Error : enter a numerical value" << def << std::endl;
 			error=1;
 		}

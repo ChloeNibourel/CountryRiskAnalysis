@@ -25,7 +25,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 		std::cin>> choice;
 		if(std::cin.fail() ){ //if type wasn't right
             std::cin.clear(); //clear stream
-            std::cin.ignore(); //ignore left over data
+            std::cin.ignore(1000,'\n'); //ignore left over data
 			choice=0; //set value of choice to zero so that we stay in the initial "do-while" loop so that the user gets to choose again
 		}
 		
@@ -42,7 +42,7 @@ void read(country* country1, country* country2, country* country3, market* marke
 				
 				if(std::cin.fail() ){ //if type wasn't right
             		std::cin.clear(); //clear stream
-            		std::cin.ignore(); //ignore left over data
+            		std::cin.ignore(1000,'\n'); //ignore left over data
 					mkt=0;
 				}
 				

@@ -29,7 +29,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 
 		if(std::cin.fail() ){ //if type wasn't right
     			std::cin.clear(); //clear stream
-            		std::cin.ignore(); //ignore left over data
+            		std::cin.ignore(1000,'\n'); //ignore left over data
 			choice1=0; //make the program offer the choice again by entering a wrong value
 		}
 		
@@ -54,7 +54,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 					
 					if(std::cin.fail() ){ //if type wasn't right
         					std::cin.clear(); //clear stream
-            					std::cin.ignore(); //ignore left over data
+            					std::cin.ignore(1000,'\n'); //ignore left over data
 						choice2b=0;
 					}
 					if(choice2b!=1 && choice2b!=2 && choice2b!=3 && choice2b!=4 && choice2b!=5 && choice2b!=6){
@@ -94,7 +94,7 @@ void updatechoice(country* country1, country* country2, country* country3, marke
 						
 				if(std::cin.fail() ){ //if type entered by the user wasn't right
             		std::cin.clear(); //clear stream
-            		std::cin.ignore(); //ignore left over data
+            		std::cin.ignore(1000,'\n'); //ignore left over data
 					choice3a=0;
 				}
 					
