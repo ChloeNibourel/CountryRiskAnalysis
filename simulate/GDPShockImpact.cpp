@@ -8,7 +8,7 @@
 /// \file GDPShockImpact.cpp
 /// \brief Defines the function GDPShockImpact 
 
-void GDPShockImpact(country* mycountry, country* foreigncountry1, country* foreigncountry2, int choice, int choicea, int choiceb,  market* market1, market* market2, market* market3, double change, exportsnetwork* nafta) {
+void GDPShockImpact(country* mycountry, country* foreigncountry1, country* foreigncountry2, int choice, int choicea, int choiceb,  market* market1, market* market2, market* market3, double change,  exportsnetwork* nafta) {
 	market* mymarketfc1; //defines the largest export market from foreigncountry1 to mycountry
 	market* mymarketfc2; //defines the largest export market from foreigncountry2 to mycountry
 	double pmkt1expfc1 = (*market1).exchange[choicea-1][choice-1]/(*nafta).exports[choicea-1][choice-1]; //market1- fc1-mycountry
