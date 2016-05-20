@@ -37,7 +37,7 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 		
 		if(std::cin.fail() ){ //if type wasn't right
             std::cin.clear(); //clear stream
-            std::cin.ignore(); //ignore left over data
+            std::cin.ignore(1000,'\n'); //ignore left over data
 			choiceshock=0; //set value of choice to zero so that we stay in the initial "do-while" loop so that the user gets to choose again
 		}
 
@@ -180,7 +180,7 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 				
 					if(std::cin.fail() ){ //if type wasn't right
             			std::cin.clear(); //clear stream
-            			std::cin.ignore(); //ignore left over data
+            			std::cin.ignore(1000,'\n'); //ignore left over data
 						mkt=0;
 					}
 					
@@ -219,7 +219,10 @@ void choicesimulate(country* country1, country* country2, country* country3, mar
 			}
 
 		}
-		
+	
+		if(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6){
+			std::cout << red << "Error : enter 1, 2, 3, 4, 5 or 6" << std::endl;
+		}
 	}while(choiceshock!=1 && choiceshock!=2 && choiceshock!=3 && choiceshock!=4 && choiceshock!=5 && choiceshock!=6);
 
 }
