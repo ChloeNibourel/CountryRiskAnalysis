@@ -1,0 +1,20 @@
+digraph "headers/colors.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="headers/colors.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="main/genericchoices.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$genericchoices_8cpp.html",tooltip="includes functions that let the user choose between options, for choices which are made repeateadly o..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="main/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Choices: 1.Read 2.Update 3.Simulate 4.Exit. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="read/choiceread.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choiceread_8cpp.html",tooltip="lets the user choose what type of data he wants to read "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="read/readdatas.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$readdatas_8cpp.html",tooltip="contains all functions that read data from excel file "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="simulate/choicesimulate.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choicesimulate_8cpp.html",tooltip="give the users the options for simulation "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="update/choiceupdate.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choiceupdate_8cpp.html",tooltip="enables the user to choose what data he wants to update "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="update/updatedatas.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$updatedatas_8cpp.html",tooltip="modify type country variable AND excel file with new data "];
+}

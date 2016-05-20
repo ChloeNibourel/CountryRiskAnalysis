@@ -1,5 +1,5 @@
-///\file getdata.cpp
-///\brief gets data about countrys from the excel (.xlsx) file and attributes the values to country classes
+/// \file getdata.cpp
+/// \brief gets data about countries from the excel (.xlsx) file and attributes the values to type country variables
 
 #include <iostream>
 #include "libxl.h"
@@ -8,8 +8,7 @@
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
 
-///\fn getdata
-///\brief loads an excel file and calls functions to read from it
+
 void getdata (country* country1, country* country2, country* country3, market* market1, market* market2, market* market3, exportsnetwork* mynetwork){
 
 	libxl::Book* book= xlCreateXMLBook();
@@ -45,11 +44,8 @@ void getdata (country* country1, country* country2, country* country3, market* m
 
 
 
-
-///\fn getmarket
-///\brief gets values about markets from the excel file and attributes it to market class variables
 void getmarket(libxl::Book* book, libxl::Sheet* sheet, market* mymarket, int k){
-	int i;
+	int i, d;
 	switch(k){
 		case 1: (*mymarket).good="food"; i=2; break;
 		case 2: (*mymarket).good="machinery"; i=8; break;
@@ -57,15 +53,23 @@ void getmarket(libxl::Book* book, libxl::Sheet* sheet, market* mymarket, int k){
 		default : std::cout<< "Error : market not in the database";
 	}
 	
-	for (int j=0; j<= 5; ++j){
-		(*mymarket).exchange[j][0]= (*sheet).readNum(i+j, 3);
-		(*mymarket).exchange[j][1]= (*sheet).readNum(i+j, 4);
+	d=0;
+	for (int m=0; m<= 2; ++m){
+		// d is a variable that will only be used to adjust our reading of the Excel file to the fact that there is no Excel line from one country to itself
+		for (int j=0; j<= 2; ++j){
+			if(m==j) { 
+				(*mymarket).exchange[m][j] =0;
+				--d;
+			}
+			else{
+				(*mymarket).exchange[m][j]= (*sheet).readNum(i+d, 3);
+			}
+			++d;
+		}
 	}
 }
 
 
-///\fn getcountry
-///\brief gets values about countries from the excel file and attributes it to country class variables
 void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int j){
 	switch(j){
 		case 1: (*mycountry).name="USA"; break;
@@ -89,13 +93,9 @@ void getcountry(libxl::Book* book, libxl::Sheet* sheet, country* mycountry, int 
 	++i;
 	(*mycountry).elasticityexports= (*sheet).readNum(i, j);
 
-	++i;
-	(*mycountry).A= (*sheet).readNum(i, j);
-
 } 
 
-///\fn getexports
-///\brief gets values of total exports between the three countries
+
 void getexports(libxl::Book* book, libxl::Sheet* sheet, exportsnetwork* mynetwork){
 	for (int i=0; i<3; ++i){
 		for (int j=0; j<3; ++j){

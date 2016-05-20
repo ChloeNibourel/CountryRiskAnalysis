@@ -1,0 +1,30 @@
+digraph "headers/country.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="headers/country.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="main/genericchoices.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$genericchoices_8cpp.html",tooltip="includes functions that let the user choose between options, for choices which are made repeateadly o..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="main/getdata.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$getdata_8cpp.html",tooltip="gets data about countries from the excel (.xlsx) file and attributes the values to type country varia..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Choices: 1.Read 2.Update 3.Simulate 4.Exit. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="read/choiceread.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choiceread_8cpp.html",tooltip="lets the user choose what type of data he wants to read "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="read/readdatas.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$readdatas_8cpp.html",tooltip="contains all functions that read data from excel file "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="simulate/choicesimulate.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choicesimulate_8cpp.html",tooltip="give the users the options for simulation "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="simulate/ExchangeRateShock\lImpact.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_exchange_rate_shock_impact_8cpp.html",tooltip="Defines the ExchangeRateShockImpact function. "];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="simulate/GDPShockImpact.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_g_d_p_shock_impact_8cpp.html",tooltip="Defines the function GDPShockImpact. "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="simulate/InterestAndInflation.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_interest_and_inflation_8cpp.html",tooltip="Defines the InterestRateShockImpact and InflationRateShockImpact functions. "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="simulate/market.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$market_8cpp.html",tooltip="Define the ProductionShock function. "];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="update/choiceupdate.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$choiceupdate_8cpp.html",tooltip="enables the user to choose what data he wants to update "];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="update/updatedatas.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$updatedatas_8cpp.html",tooltip="modify type country variable AND excel file with new data "];
+}

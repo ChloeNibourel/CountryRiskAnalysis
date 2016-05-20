@@ -1,6 +1,6 @@
 /// \file main.cpp
 /// \brief Choices: 1.Read 2.Update 3.Simulate 4.Exit
-///
+
 /// User have 4 choices opening the program
 /// 1.Read some datas used to simulate
 /// 2.Update some datas to improve the simulation
@@ -14,9 +14,10 @@
 #include "../headers/getdata.h"
 #include "../headers/readdata.h"
 #include "../headers/updatedata.h"
+#include "../headers/simulate.h"
 
-///\fn main
-///\brief creates variables for countries and markets, and asks the user what he wants to do
+/// \fn main
+/// \brief creates variables for countries and markets, and asks the user what he wants to do
 int main() {
 
 	//Getting data from the Excel file into type country variables usa, canada, mexico and type market variables food, machinery, fuel
@@ -45,12 +46,18 @@ int main() {
 	do {
 		std::cout << std::endl;
 		std::cout << blue << "Welcome, what do you want to do ? 1/2/3/4"<<std::endl;
-		std::cout << " 1. Read datas used"<<std::endl;
-		std::cout << " 2. Update datas used"<<std::endl;
+		std::cout << " 1. Read datas"<<std::endl;
+		std::cout << " 2. Update datas"<<std::endl;
 		std::cout << " 3. Simulate a shock"<<std::endl;	
 		std::cout << " 4. Exit the program"<< def << std::endl;
 
-		std::cin>>choice; /// \bug when user does not enter an integer in the choices 
+		std::cin>>choice;
+
+		if(std::cin.fail() ){ //if type wasn't right
+          	  std::cin.clear(); //clear stream
+         	  std::cin.ignore(1000,'\n'); //ignore left over data
+			choice=0;
+		}
 
 // switch: send the choice to the good function
 	switch (choice) {
@@ -58,11 +65,11 @@ int main() {
 				break;
 			case 2: updatechoice(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
 				break;
-			/*case 3: simulate();
-				break;*/
+			case 3: choicesimulate(&usa, &canada, &mexico, &food, &machinery, &fuel, &nafta);
+				break;
 			case 4: 
 				break;
-			default: std::cout << red << "Error, enter 1, 2, 3 or 4" << def << std::endl;
+			default: std::cout << red << "Error: please enter 1, 2, 3 or 4" << def << std::endl;
 		}
 		
 	} while (choice!=4);
