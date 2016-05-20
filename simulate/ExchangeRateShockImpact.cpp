@@ -50,7 +50,7 @@ void ExchangeRateShockImpact(country* domesticcountry, country* foreigncountry, 
 		std::cout << "No impact on economy." << std::endl;	
 	}
 	if (change <= 0) { ///Depreciation
-		std::cout << "Risk for " << (*foreigncountry).name << "'s imports from" << (*domesticcountry).name << std::endl; 
+		std::cout << "Risk for " << (*foreigncountry).name << "'s imports from " << (*domesticcountry).name << std::endl; 
 		std::cout << "	Especially " << (*foreigncountry).name << "'s " << (*mymarketfc).good << " export market." << 			std::endl;
 		std::cout << "Good for " << (*domesticcountry).name << "'s primary exports to " << (*foreigncountry).name << 			std::endl;
 		std::cout << "	Especially " << (*domesticcountry).name << "'s " << (*mymarketdom).good << " export market." << 		std::endl;
